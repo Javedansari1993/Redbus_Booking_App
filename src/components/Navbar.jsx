@@ -4,11 +4,10 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-light border border-3">
+      <nav className="navbar navbar-expand-lg bg-light border border-3 px-4">
         <div className="container-fluid">
-          <Link className="navbar-brand fw-bold text-warning mx-4" to="/">
-            RESERVE
-          </Link>
+        <span class="material-icons self-center">bus</span>
+          <button className="fs-5 text-warning fw-bold border border-none">RESERVE</button>
           <button
             className="navbar-toggler"
             type="button"
@@ -22,12 +21,12 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+              <li className="nav-item px-4">
                 <Link className="nav-link active fw-bold" aria-current="page" to="/">
                   Ticket
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item px-4">
                 <Link className="nav-link active fw-bold" to="/">
                   Contact us
                 </Link>
