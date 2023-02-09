@@ -1,18 +1,20 @@
 import React from "react";
+import Calender from "./Calender";
 import Dropdown from "./Dropdown";
-import Dropdown2 from "./Dropdown2";
 
 const Selector = () => {
   return (
-    <div className="container text-center">
-      <div className="row justify-content-center">
-        <div className="col col-3 border border-primary">
-            <Dropdown/>
+    <div className="container-fluid bg-secondary bg-opacity-25">
+      <div className="row justify-content-center g-0">
+        <div className="col col-3">
+          <Dropdown />
         </div>
-        <div className="col col-3 border border-primary">
-          <Dropdown2/>
+        <div className="col col-3">
+          <Dropdown/>
         </div>
-        <div className="col col-3 border border-primary">3 of 3</div>
+        <div className="col col-3">
+          <Calender/>
+        </div>
       </div>
     </div>
   );

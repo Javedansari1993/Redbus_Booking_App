@@ -7,8 +7,8 @@ const HomePage = () => {
   return (
     <div>
         <Navbar/>
-        <Footer/>
         <Selector/>
+        <Footer/>
     </div>
   )
 }

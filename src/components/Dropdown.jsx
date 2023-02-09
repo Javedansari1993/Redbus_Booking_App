@@ -1,65 +1,64 @@
 import React, { useState } from "react";
 
-const Dropdown = () => {
+const Dropdown2 = () => {
   const cities = [
-    { name: "Mumbai", value: "mumbai" },
-    { name: "Delhi", value: "delhi" },
+    { name: "Mumbai", value: "Mumbai" },
+    { name: "Delhi", value: "Delhi" },
     { name: "Chennai", value: "Chennai" },
-    { name: "Hedrabad", value: "hedrabad" },
-    { name: "Kalcutta", value: "kalCutta" },
-    { name: "Madrash", value: "madrash" },
+    { name: "Hedrabad", value: "Hedrabad" },
+    { name: "Kalcutta", value: "KalCutta" }
   ];
   const [drop, setDrop] = useState(false);
   const [city, setCity] = useState("Mumbai");
 
   return (
-    <div>
-      <button
-        className="fw-bold fs-6 rounded w-100 text-content-center my-3"
-        onClick={() => setDrop(!drop)}
-        style={{height:"60px"}}
-      >
-        {city}
-      </button>
+    <div className="my-1">
+      <div class="d-flex flex-column my-1 p-1 bg-light my-2 border border-3" style={{height:"80px"}} onClick={() => setDrop(!drop)}>
+        <small class="text-muted">From</small>
+        <div class="fw-bold fs-6">{city}</div>
+        <small className="fw-bold">india</small>
+      </div>
       {drop && (
-        <div className="bg-success p-2 text-dark bg-opacity-10 p-1">
-          <input
-            className="w-100"
-            type="search"
-            placeholder="From"
-            value={city.toUpperCase()}
-            onChange={(e) => setCity(e.target.value)}
-          />
-          <select
-            className="w-100 form-select"
-            name="cars"
-            id="cars"
-            onChange={(e) => setCity(e.target.value, e.preventDefault())}
-          >
-            {cities
-              .filter((val) => {
-                if (city.name === "") {
-                  return val;
-                } else if (
-                  val.name
-                    .toLocaleLowerCase()
-                    .includes(city.toLocaleLowerCase())
-                ) {
-                  return val;
-                }
-              })
-              .map((val) => {
-                return (
-                  <option className="w-100" value={val.value}>
-                    {val.name.toUpperCase()}
-                  </option>
-                );
-              })}
-          </select>
-        </div>
+          <div className="bg-light border border-3 p-2">
+            <div>
+                <input
+                  className="w-100"
+                  type="search"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                />
+            </div>
+            <ul className="list-unstyled mb-0 overflow-auto" style={{height:"165px"}}>
+              {cities
+                .filter((val) => {
+                  if (city.name === "") {
+                    return val;
+                  } else if (
+                    val.name
+                      .toLocaleLowerCase()
+                      .includes(city.toLocaleLowerCase())
+                  ) {
+                    return val;
+                  }
+                })
+                .map((val) => {
+                  return (
+                    <li
+                      className="dropdown-item d-flex align-items-center gap-2 py-2 px-2"
+                      onClick={() => {
+                        setCity(val.value);
+                      }}
+                    >
+                      {val.name}
+                    </li>
+                  );
+                })}
+            </ul>
+          </div>
+
       )}
     </div>
   );
 };
 
-export default Dropdown;
+export default Dropdown2;
