@@ -1,16 +1,22 @@
-import React from 'react'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
-import Selector from '../components/Selector'
+import React from "react";
+import { Cards } from "../components/Cards";
+import Footer from "../components/Footer";
+import Heading from "../components/Heading";
+import Navbar from "../components/Navbar";
+import Reviews from "../components/Reviews";
+import Selector from "../components/Selector";
 
 const HomePage = () => {
   return (
     <div>
-        <Navbar/>
-        <Selector/>
-        <Footer/>
+      <Navbar />
+      <Selector />
+      <Cards/>
+      <Heading/>
+      <Reviews/>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

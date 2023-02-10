@@ -7,7 +7,7 @@ const Calender = () => {
   return (
     <div className="my-1">
       <div
-        class="d-flex flex-column my-1 p-1 bg-light my-2 border border-3"
+        class="d-flex flex-column my-1 p-1 bg-light my-2 border border-3 rounded"
         style={{ height: "80px" }}
         onClick={() => setDrop(!drop)}
       >
@@ -20,13 +20,15 @@ const Calender = () => {
           })}
         </div>
       </div>
-      <div className="bg-light">
-        <Calendar
-          className="w-100"
-          value={value}
-          onChange={(d) => setValue(d)}
-        />
-      </div>
+      {drop && (
+        <div className="bg-light rounded">
+          <Calendar
+            className="w-100"
+            value={value}
+            onChange={(d) => setValue(d)}
+          />
+        </div>
+      )}
     </div>
   );
 };

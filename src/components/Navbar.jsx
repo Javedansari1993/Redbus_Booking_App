@@ -7,7 +7,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg bg-light border border-3 px-4">
         <div className="container-fluid">
         <span class="material-icons self-center">bus</span>
-          <button className="fs-5 text-warning fw-bold border border-none">RESERVE</button>
+          <button className="fs-5 text-warning fw-bold border border-0">RESERVE</button>
           <button
             className="navbar-toggler"
             type="button"

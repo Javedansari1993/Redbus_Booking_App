@@ -1,13 +1,14 @@
 import React from "react";
 import { AiOutlineInstagram, AiOutlineFacebook } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="container-fluid">
-      <div className="row px-4">
+    <div className="container-fluid" style={{backgroundColor:"#EBEDEF"}}>
+      <div className="row px-4 pt-4 ">
         <div className="col">
           <span className="material-icons self-center">bus</span>
-          <button className="fs-5 text-warning fw-bold border border-none">RESERVE</button>
+          <Link className="fs-5 text-warning fw-bold border border-0 text-decoration-none">RESERVE</Link>
           <p>When you have a choice. Choose Reserve.</p>
           <p>Reserve offers bus tickets booking<br/>
           through its website, IOS, and android<br/>
