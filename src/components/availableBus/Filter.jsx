@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Checkbox from "./Checkbox";
 import SearchBox from "./SearchBox";
-import data from "./Dataset";
+import filterData from "./Dataset";
 
 const Filter = () => {
-  const [a, b, c, d, e, f] = data;
-  console.log(a);
   return (
     <div class="col-3">
       <div class="d-flex flex-column mb-3 bg-secondry">
@@ -14,15 +12,19 @@ const Filter = () => {
           style={{ height: "40px" }}
         >
           <div className="fw-bold flex-grow-1">Filter</div>
-          <small className="fw-bold" style={{fontSize:"11px"}}>Clear All</small>
+          <small className="fw-bold" style={{ fontSize: "11px" }}>
+            Clear All
+          </small>
         </div>
         <div className="border border-2 rounded shadow">
-          <Checkbox dept={a} />
-          <Checkbox dept={b} />
-          <SearchBox dept={c} />
-          <Checkbox dept={d} />
-          <Checkbox dept={e} />
-          <SearchBox dept={f} />
+          {filterData.map((item, index) => {
+            return (
+              <div>
+                {item.selector === "multiple" ? <SearchBox dept={item}/>:<Checkbox dept={item} index={index} />}
+              </div>
+            );
+          })}
+
         </div>
       </div>
     </div>

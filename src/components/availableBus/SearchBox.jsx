@@ -13,29 +13,22 @@ const SearchBox = ({ dept }) => {
         <input
           className="d-block h-25 mb-1"
           type="search"
-          name={dept.value1}
+          name={dept.value}
           value=""
           placeholder="search"
         />
-        <input type="checkbox" name={dept.value1} value={dept.value1} checked/>
-        <label className="px-2" htmlFor="vehicle1">
-          <small className="">{dept.name1}</small>
-        </label>
-        <br />
-        <input type="checkbox" name={dept.value2} value={dept.value2} />
-        <label className="px-2" htmlFor="vehicle2">
-          <small className="">{dept.name2}</small>
-        </label>
-        <br />
-        <input
-          type="checkbox"
-          name={dept.value3}
-          value={dept.value3}
-          defaultChecked="checked"
-        />
-        <label className="px-2" htmlFor="vehicle3">
-          <small className="">{dept.name3}</small>
-        </label>
+        {dept.name1.map((item) => {
+          return (
+            <div>
+              <input type="checkbox" name={item.value} value={item.value} />
+              <label className="px-2" htmlFor="vehicle1">
+                <small className="">{item.value}</small>
+              </label>
+              <br />
+              <input className="d-none" type="submit" defaultValue="Submit" />
+            </div>
+          );
+        })}
         <input className="d-none" type="submit" value="Submit" />
       </form>
       <hr className="border border-primary border-1 m-0 p-0" />

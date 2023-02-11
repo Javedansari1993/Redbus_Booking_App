@@ -6,7 +6,7 @@ const Navbar = () => {
     <div>
       <nav className="navbar navbar-expand-lg bg-light border border-3 px-4">
         <div className="container-fluid">
-        <span class="material-icons self-center">bus</span>
+        <span class="material-icons self-center"><i class="fa-solid fa-bus fs-5 text-warning"></i></span>
           <button className="fs-5 text-warning fw-bold border border-0">RESERVE</button>
           <button
             className="navbar-toggler"

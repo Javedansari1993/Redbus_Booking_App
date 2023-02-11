@@ -7,7 +7,7 @@ const Footer = () => {
     <div className="container-fluid" style={{backgroundColor:"#EBEDEF"}}>
       <div className="row px-4 pt-4 ">
         <div className="col">
-          <span className="material-icons self-center">bus</span>
+          <span className="material-icons self-center"><i class="fa-solid fa-bus fs-5 text-warning mx-1"></i></span>
           <Link className="fs-5 text-warning fw-bold border border-0 text-decoration-none">RESERVE</Link>
           <p>When you have a choice. Choose Reserve.</p>
           <p>Reserve offers bus tickets booking<br/>
