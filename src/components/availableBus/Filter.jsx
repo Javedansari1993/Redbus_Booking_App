@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Checkbox from "./Checkbox";
 import SearchBox from "./SearchBox";
 import filterData from "./Dataset";
@@ -8,7 +8,7 @@ const Filter = () => {
     <div class="col-3">
       <div class="d-flex flex-column mb-3 bg-secondry">
         <div
-          class="d-flex border border-2 p-2 my-2 rounded shadow"
+          class="d-flex border border-2 p-2 my-2 rounded shadow align-items-center"
           style={{ height: "40px" }}
         >
           <div className="fw-bold flex-grow-1">Filter</div>
