@@ -2,54 +2,54 @@ import React from "react";
 import { useState } from "react";
 import "../../App.css";
 const Pagination = () => {
-  const d = new Date()
-let day = d.toLocaleString('en-us', {weekday: 'short'});
+  const d = new Date();
+  let month = d.toLocaleString("en-us", { month: "short" })
   const [date, setDate] = useState(d.getDate());
-  const [cur, setCur] = useState(1);
   let pageData = [
-    {id:d.getDate(),page:d.getDate(),day:d.toLocaleString('en-us', {weekday: 'short'})}
+    {
+      id: d.getDate(),
+      page: d.getDate(),
+      day: d.toLocaleString("en-us", { weekday: "short" }),
+    },
   ];
-  
-  for (let index = 0; index <=30; index++) {
-    d.setDate(d.getDate()+1)
-    console.log(d.getDate()) 
-    console.log(d.toLocaleString('en-us', {weekday: 'short'}));
-    pageData.push({id:d.getDate(),page:d.getDate(),day:d.toLocaleString('en-us', {weekday: 'short'})})
+
+  for (let index = 0; index <= 30; index++) {
+    d.setDate(d.getDate() + 1);
+    pageData.push({
+      id: d.getDate(),
+      page: d.getDate(),
+      day: d.toLocaleString("en-us", { weekday: "short" }),
+    });
   }
 
-  function handleNext(){
-    if (date<23) {
-      setDate(date + 1)
-      d.setDate(d.getDate()+1)
-    }
-  }
+  // function handleNext() {
+  //   if (date < 23) {
+  //     setDate(date + 1);
+  //     d.setDate(d.getDate() + 1);
+  //   }
+  // }
   return (
-    <div>
+    <div
+      class=" d-flex justify-content-center align-items-center border border-1 my-2 rounded shadow"
+      style={{ height: "42px", background:"#EAECEE" }}
+    >
       <div
-        class="border border-2 my-2 rounded shadow"
-        style={{ height: "42px" }}
+        className="d-flex justify-content-center py-2 px-3 border border-1 text-primary"
+        id="li"
+        style={{ width: "40px" }}
+        onClick={() =>
+          (document.getElementById("pageBox").scrollLeft -= 250)}
       >
-        <nav aria-label="Page navigation example">
-        <li
-              id="li"
-              className="d-flex justify-content-center align-items-center"
-              style={{ width: "35px" }}
-              onClick={() => document.getElementById('pageBox').scrollLeft -= 90}
-            >
-              <span
-                aria-hidden="true"
-                className="text-primary"
-              >
-                «
-              </span>
-            </li>
-          <ul className="pagination" id="pageBox" style={{overflowX:"scroll"}}>
-            {pageData.map((item) => {
+        «
+      </div>
+      <div className="d-flex justify-content-center py-2 px-2 text-muted border border-1" style={{}}>{month}</div>
+      <ul id="pageBox" className="flex-grow-1 d-flex list-unstyled mt-3" style={{overflow:"hidden",width: "600px",overflowX: "scroll",overflowX: "hidden"}}>
+      {pageData.map((item) => {
               return (
                 <li
                   id="li"
-                  className="page-item d-flex flex-column justify-content-center align-items-center px-3 border border-1"
-                  style={{ width: "90px" }}
+                  className="d-flex flex-column justify-content-center align-items-center px-4"
+                  style={{ width: "90px"}}
                 >
                   <small
                     className="fw-bold text-muted"
@@ -66,22 +66,15 @@ let day = d.toLocaleString('en-us', {weekday: 'short'});
                 </li>
               );
             })}
-          </ul>
-          <li
-              id="li"
-              className="d-flex justify-content-center align-items-center"
-              style={{ width: "35px" }}
-              onClick={() => document.getElementById('pageBox').scrollLeft += 90}
-            >
-              <span
-                aria-hidden="true"
-                className="text-primary"
-                onClick={handleNext}
-              >
-                »
-              </span>
-            </li>
-        </nav>
+      </ul>
+      <div
+        className="d-flex justify-content-center py-2 px-3 border border-1  text-primary"
+        id="li"
+        style={{ width: "40px" }}
+        onClick={() =>
+          (document.getElementById("pageBox").scrollLeft += 250)}
+      >
+        »
       </div>
     </div>
   );
