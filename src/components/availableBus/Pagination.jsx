@@ -4,7 +4,7 @@ import "../../App.css";
 const Pagination = () => {
   const d = new Date();
   let month = d.toLocaleString("en-us", { month: "short" })
-  const [date, setDate] = useState(d.getDate());
+  // const [date, setDate] = useState(d.getDate());
   let pageData = [
     {
       id: d.getDate(),
@@ -31,7 +31,7 @@ const Pagination = () => {
   return (
     <div
       class=" d-flex justify-content-center align-items-center border border-1 my-2 rounded shadow"
-      style={{ height: "42px", background:"#EAECEE" }}
+      style={{ height: "40px"}}
     >
       <div
         className="d-flex justify-content-center py-2 px-3 border border-1 text-primary"
@@ -42,7 +42,7 @@ const Pagination = () => {
       >
         «
       </div>
-      <div className="d-flex justify-content-center py-2 px-2 text-muted border border-1" style={{}}>{month}</div>
+      <div id="li" className="d-flex justify-content-center py-2 px-2 text-muted" style={{writingMode: "vertical-lr"}}>{month}</div>
       <ul id="pageBox" className="flex-grow-1 d-flex list-unstyled mt-3" style={{overflow:"hidden",width: "600px",overflowX: "scroll",overflowX: "hidden"}}>
       {pageData.map((item) => {
               return (

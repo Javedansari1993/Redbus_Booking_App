@@ -6,7 +6,7 @@ import Pagination from "./Pagination";
 const BusTimings = () => {
   return (
     <div class="col-9">
-      <div class="d-flex flex-column mb-3 bg-secondry">
+      <div class="d-flex flex-column mb-3">
        <Pagination/>
         <div className="border border-2 rounded shadow">
           {busData.map((item) => {

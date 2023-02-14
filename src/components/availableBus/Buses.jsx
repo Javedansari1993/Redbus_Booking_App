@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import BusDetails from "./BusDetails";
 
-const Buses = ({item}) => {
+const Buses = ({ item }) => {
+  const [sheet, setSheet] = useState(false)
   return (
     <div class="container border border-1">
       <div class="row">
@@ -33,19 +35,39 @@ const Buses = ({item}) => {
             <small>06:20,17NOV</small>
           </div>
           <div className="d-flex my-4">
-            <div className="fw-bold text-primary" style={{fontSize:"10px"}}>Live train</div>
-            <div className="fw-bold text-primary mx-3" style={{fontSize:"10px"}}>Bus Photo</div>
-            <div className="fw-bold text-primary" style={{fontSize:"10px"}}>Review</div>
-            <div className="fw-bold text-primary mx-3" style={{fontSize:"10px"}}>Privacy</div>
-            <div className="fw-bold text-primary" style={{fontSize:"10px"}}>Amenities</div>
+            <div className="fw-bold text-primary" style={{ fontSize: "10px" }}>
+              Live train
+            </div>
+            <div
+              className="fw-bold text-primary mx-3"
+              style={{ fontSize: "10px" }}
+            >
+              Bus Photo
+            </div>
+            <div className="fw-bold text-primary" style={{ fontSize: "10px" }}>
+              Review
+            </div>
+            <div
+              className="fw-bold text-primary mx-3"
+              style={{ fontSize: "10px" }}
+            >
+              Privacy
+            </div>
+            <div className="fw-bold text-primary" style={{ fontSize: "10px" }}>
+              Amenities
+            </div>
           </div>
         </div>
         <div class="col-3 d-flex-column border border-1 p-2 text-center justify-content-center align-items-center">
           <div className="my-1">Trip Cost</div>
-          <div className="text-muted" style={{fontSize:"10px"}}>starting from</div>
+          <div className="text-muted" style={{ fontSize: "10px" }}>
+            starting from
+          </div>
           <h6>$899</h6>
-          <button className="btn btn-warning my-1">View Seat</button>
+          <button className="btn btn-warning my-1" onClick={()=>setSheet(!sheet)}>View Seat</button>
         </div>
+        {sheet &&  <BusDetails/> }
+       
       </div>
     </div>
   );
