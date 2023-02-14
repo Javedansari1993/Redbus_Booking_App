@@ -1,40 +1,55 @@
-import React from 'react'
-import { useState } from 'react'
-import "../../App.css"
+import React from "react";
+import { useState } from "react";
+import "../../App.css";
 const Pagination = () => {
-  const[date,setDate] = useState(1)
-  const [cur, setCur] = useState(1)
-  const pageData = [
-    {id:1,page:date+0,day:"Sun"},
-    {id:2,page:date+1,day:"Mon"},
-    {id:3,page:date+2,day:"Tue"},
-    {id:4,page:date+3,day:"Wed"},
-    {id:5,page:date+4,day:"Thu"},
-    {id:6,page:date+5,day:"Fri"},
-    {id:7,page:date+6,day:"Sat"},
-    {id:8,page:date+7,day:"Sun"},
-    {id:9,page:date+8,day:"Mon"},
-  ]
+  const d = new Date()
+let day = d.toLocaleString('en-us', {weekday: 'short'});
+  const [date, setDate] = useState(d.getDate());
+  const [cur, setCur] = useState(1);
+  let pageData = [
+    {id:d.getDate(),page:d.getDate(),day:d.toLocaleString('en-us', {weekday: 'short'})}
+  ];
+  
+  for (let index = 0; index <=30; index++) {
+    d.setDate(d.getDate()+1)
+    console.log(d.getDate()) 
+    console.log(d.toLocaleString('en-us', {weekday: 'short'}));
+    pageData.push({id:d.getDate(),page:d.getDate(),day:d.toLocaleString('en-us', {weekday: 'short'})})
+  }
+
+  function handleNext(){
+    if (date<23) {
+      setDate(date + 1)
+      d.setDate(d.getDate()+1)
+    }
+  }
   return (
     <div>
-         <div
-          class="border border-2 my-2 rounded shadow"
-          style={{ height: "42px"}}
-        >
-          <nav aria-label="Page navigation example">
-            <ul className="pagination">
-              <li className="page-item">
-                <a className="page-link" aria-label="Previous">
-                  <span aria-hidden="true">«</span>
-                  <span className="sr-only">Previous</span>
-                </a>
-              </li>
-              {
-                pageData.map((item)=>{
-                  return <li
+      <div
+        class="border border-2 my-2 rounded shadow"
+        style={{ height: "42px" }}
+      >
+        <nav aria-label="Page navigation example">
+        <li
+              id="li"
+              className="d-flex justify-content-center align-items-center"
+              style={{ width: "35px" }}
+              onClick={() => document.getElementById('pageBox').scrollLeft -= 90}
+            >
+              <span
+                aria-hidden="true"
+                className="text-primary"
+              >
+                «
+              </span>
+            </li>
+          <ul className="pagination" id="pageBox" style={{overflowX:"scroll"}}>
+            {pageData.map((item) => {
+              return (
+                <li
                   id="li"
-                  className="page-item d-flex flex-column justify-content-center align-items-center px-3"
-                  style={{width:"90px" }}
+                  className="page-item d-flex flex-column justify-content-center align-items-center px-3 border border-1"
+                  style={{ width: "90px" }}
                 >
                   <small
                     className="fw-bold text-muted"
@@ -49,19 +64,27 @@ const Pagination = () => {
                     {item.day}
                   </small>
                 </li>
-                })
-              }
-              <li className="page-item">
-                <a className="page-link" aria-label="Next">
-                  <span aria-hidden="true">»</span>
-                  <span className="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+              );
+            })}
+          </ul>
+          <li
+              id="li"
+              className="d-flex justify-content-center align-items-center"
+              style={{ width: "35px" }}
+              onClick={() => document.getElementById('pageBox').scrollLeft += 90}
+            >
+              <span
+                aria-hidden="true"
+                className="text-primary"
+                onClick={handleNext}
+              >
+                »
+              </span>
+            </li>
+        </nav>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Pagination
+export default Pagination;
