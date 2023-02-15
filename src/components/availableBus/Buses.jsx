@@ -4,7 +4,7 @@ import BusDetails from "./BusDetails";
 const Buses = ({ item }) => {
   const [sheet, setSheet] = useState(false)
   return (
-    <div class="container border border-1">
+    <div class="container border border-1 mr-2 mt-2 rounded">
       <div class="row">
         <div
           class="col-9 border border-1 d-flex-column p-3"

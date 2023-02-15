@@ -8,7 +8,7 @@ const BusTimings = () => {
     <div class="col-9">
       <div class="d-flex flex-column mb-3">
        <Pagination/>
-        <div className="border border-2 rounded shadow">
+        <div className="">
           {busData.map((item) => {
             return <Buses item={item} />;
           })}
