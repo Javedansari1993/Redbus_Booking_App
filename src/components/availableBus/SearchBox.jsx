@@ -11,6 +11,7 @@ const SearchBox = ({ dept }) => {
       </div>
       <form className="my-3" action="/action_page.php" method="get">
         <input
+        style={{maxWidth:"100%"}}
           className="d-block h-25 mb-1"
           type="search"
           name={dept.value}
@@ -25,7 +26,7 @@ const SearchBox = ({ dept }) => {
                 <small className="">{item.value}</small>
               </label>
               <br />
-              <input className="d-none" type="submit" defaultValue="Submit" />
+              <input className="d-none" type="submit" defaultValue="Submit"/>
             </div>
           );
         })}
