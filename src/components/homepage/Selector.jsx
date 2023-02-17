@@ -13,7 +13,7 @@ const Selector = () => {
     <div
       className="container-fluid"
       style={{
-        height: "100vh",
+        height: "70vh",
         backgroundImage: `url(${bgimage})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
@@ -21,7 +21,7 @@ const Selector = () => {
     >
       <div
         className="row justify-content-center g-0 position-relative"
-        style={{ paddingTop: "435px", zIndex: 1 }}
+        style={{ paddingTop: "200px", zIndex: 1 }}
       >
         {
           dropdownData.map((item)=>{
@@ -32,8 +32,8 @@ const Selector = () => {
       </div>
       <Link
         to="./AvailableBus"
-        className="position-absolute btn btn-warning rounded fw-bold text-white"
-        style={{ top: "110%", left: "45%", width: "10%" }}
+        className="position-absolute btn btn-warning rounded fw-bold text-white mt-1"
+        style={{ top: "79%", left: "45%", width: "10%" }}
       >
         Search
       </Link>

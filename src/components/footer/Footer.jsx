@@ -48,7 +48,7 @@ const Footer = () => {
         </div>
       </div>
       <hr className="border border-dark mx-4" />
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center  align-items-center pb-3">
         All rights reserved - 2022
       </div>
     </div>

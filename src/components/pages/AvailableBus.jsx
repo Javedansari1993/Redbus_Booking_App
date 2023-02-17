@@ -7,8 +7,8 @@ import Navbar from "../navbar/Navbar";
 const AvailableBus = () => {
   return (
     <div>
-      <Navbar />
-      <div class="container">
+      <Navbar/>
+      <div class="container" style={{marginTop:"70px"}}>
         <div class="row">
           <Filter />
           <BusTimings />
