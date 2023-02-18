@@ -28,7 +28,7 @@ const Selector = () => {
             return <Dropdown key={item.id} item={item}/>
           })
         }
-        <Calender />
+        <Calender className="col-sm-6"/>
       </div>
       <Link
         to="./AvailableBus"

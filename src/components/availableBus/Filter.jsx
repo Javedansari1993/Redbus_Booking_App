@@ -5,7 +5,7 @@ import filterData from "./Dataset";
 
 const Filter = () => {
   return (
-    <div class="col-3">
+    <div class="col-md-3 col-sm-12 ">
       <div class="d-flex flex-column mb-3 bg-secondry">
         <div
           class="d-flex border border-2 p-2 my-2 rounded shadow align-items-center"

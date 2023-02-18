@@ -12,7 +12,7 @@ const Cards = () => {
   return (
     <div className="container-fluid ">
       <div
-        class="d-flex justify-content-center align-items-center gap-2"
+        class="d-flex flex-md-row flex-sm-column justify-content-center align-items-center gap-2"
         style={{ height: "390px" }}
       >
         {cardData.map((item) => {
