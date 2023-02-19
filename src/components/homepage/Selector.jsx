@@ -6,8 +6,8 @@ import bgimage from "../images/bgimage.jpg";
 
 const Selector = () => {
   const dropdownData = [
-    { id: 1, value: "Form" },
-    { id: 2, value: "To" },
+    { id: 1, value: "From",name:""},
+    { id: 2, value: "To",name:""},
   ];
   return (
     <div
