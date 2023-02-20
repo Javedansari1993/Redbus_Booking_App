@@ -1,70 +1,158 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Youtube Subscribers backend Project
 
-## Available Scripts
+This project using NodeJS, Express, MongoDB Atlas database, Mongoose and dotenv for setting Environment varialbles and including perticular routes end point in the URL, through this users can access all subscribers,access particular subscriber, add subscriber, delete, update subscriber by perticular IDs.
 
-In the project directory, you can run:
+## Run Locally
 
-### `npm start`
+Clone the project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+  git clone https://github.com/Javedansari1993/Youtube-Subscriber.git
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Go to the project directory
 
-### `npm test`
+```bash
+  cd Youtube-Subscriber
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Install dependencies
 
-### `npm run build`
+```bash
+  npm install
+```
+Create .env file using .env.sample.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Set the environment key DATABASE_URL with you mongoDB connection URL
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Start the server
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+  npm run start
+```
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Quick Start
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Node.js module should be installed in your machine befor download the project and run this command
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+  npm install
+```
+Start the server:
+```bash
+  npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    
+## Environment Variables
 
-## Learn More
+To run this project, you will need to add the following environment variables to your .env file
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`PORT`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`DATABASE_URL`
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Running Tests
 
-### Analyzing the Bundle Size
+To run tests, run the following command
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+  npm run test
+```
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## API Reference
 
-### Advanced Configuration
+#### Get all subscribers
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```http
+  GET /subscribers
+```
 
-### Deployment
+#### Get all subscriberChannel and name only
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```http
+  GET /subscribers/names
+```
 
-### `npm run build` fails to minify
+#### Get single subscriber
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```http
+  GET /subscribers/:id
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of subscriber to fetch |
+
+#### Add subscriber
+```http
+  POST /subscribers
+```
+
+#### Delete subscriber
+```http
+  DELETE /subscribers/:id
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of subscriber to delete |
+
+#### Update subscriber
+```http
+  POST /subscribers/:id
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of subscriber to update |
+
+
+
+
+## Demo
+Demo weblink:
+https://drive.google.com/file/d/1jYGspRzzJojKfMVnDZwXkXyykVc73r2b/view?usp=sharing
+
+## Features
+
+- Access all subscribers from remotely hoisted database
+- Add new subscriber to database
+- Access perticular data from database through a specific IDs
+- Delete subscriber from the database through a specific IDs
+- Update existing subscriber in the database through a specific IDs
+
+
+
+## Deployment
+Deployment link:
+ https://youtube-subscriber-lyart.vercel.app/
+
+
+
+## FAQ
+
+#### How to add new subscribers?
+
+Use Postman to add new subscriber in the database.
+
+#### How to delete new subscribers?
+Use Postman to Delete subscriber from the database.
+
+#### How to update new subscribers?
+Use Postman to update subscriber from the database.
+
+## 🚀 About Me
+I'm a full stack developer...Currently learning web 3.O from Almabetter
+
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/Javedansari1993)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/javed-ansari-07a327154/)
+
+## Screenshot
+<img width="960" alt="subscriber" src="https://user-images.githubusercontent.com/110160515/211889536-640f4bc2-0447-47e8-b7bb-ac7aff5e0f06.png">
+<img width="959" alt="subscriberId" src="https://user-images.githubusercontent.com/110160515/211889608-7ca93778-424d-4dec-811b-fa4f5b93052b.png">
+<img width="960" alt="defaultRoutes" src="https://user-images.githubusercontent.com/110160515/211890114-91b26efa-6e80-4a62-bf40-1d14bf879b46.png">
