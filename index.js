@@ -1,4 +1,5 @@
 require('dotenv').config()
+const cors = require("cors")
 const express = require('express')
 const busOperatorRoutes = require('./src/routes/busOperatorRoutes')
 const busDetailRoutes = require('./src/routes/busDetailsRoutes')
@@ -9,12 +10,14 @@ const DATABASE_URL = process.env.DATABASE_URL || ""
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json())
+app.use(cors())
 app.use((req, res, next) => {
     console.log(req.path, req.method);
     next();
   });
 // app.use(express.urlencoded({ extended: false }));
 app.use('/',busOperatorRoutes)
+app.use('/',busDetailRoutes)
 
 // Connect to DATABASE
 mongoose.connect(DATABASE_URL,{ useNewUrlParser: true, useUnifiedTopology: true });

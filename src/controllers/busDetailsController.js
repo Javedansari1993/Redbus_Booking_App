@@ -2,14 +2,14 @@ const mongoose = require("mongoose");
 const busDetails = require("../models/busDetailsModule");
 
 // Initial add data to database
-const data = require("../database/busDetailsDb");
-busDetails.insertMany(data,function(err){
-    if(err){
-        console.log(err);
-    }else{
-        console.log("Successfully saved")
-    }
-})
+// const data = require("../database/busDetailsDb");
+// busDetails.insertMany(data,function(err){
+//     if(err){
+//         console.log(err);
+//     }else{
+//         console.log("Successfully saved")
+//     }
+// })
 
 //get all Subscriber
 const getbusDetail = async (req, res) => {
