@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 
-const Dropdown2 = ({item}) => {
-  const cities = [
-    { name: "Mumbai", value: "Mumbai" },
-    { name: "Delhi", value: "Delhi" },
-    { name: "Chennai", value: "Chennai" },
-    { name: "Hedrabad", value: "Hedrabad" },
-    { name: "Kalcutta", value: "KalCutta" },
-  ];
+const Dropdown = ({ cityList,val,selectedCity }) => {
   const [drop, setDrop] = useState(false);
   const [city, setCity] = useState("");
 
@@ -20,7 +13,7 @@ const Dropdown2 = ({item}) => {
           onClick={() => setDrop(!drop)}
         >
           <div className="d-flex">
-            <small class="text-muted flex-grow-1">{item.value}</small>
+            <small class="text-muted flex-grow-1">{val}</small>
             <div>
               <i class="fa-solid fa-caret-down"></i>
             </div>
@@ -43,27 +36,30 @@ const Dropdown2 = ({item}) => {
               className="list-unstyled mb-0 overflow-auto rounded"
               style={{ maxHeight: "165px" }}
             >
-              {cities
+              {cityList
                 .filter((val) => {
-                  if (city.name === "") {
+                  if (val === "") {
                     return val;
                   } else if (
-                    val.name
+                    val
                       .toLocaleLowerCase()
                       .includes(city.toLocaleLowerCase())
                   ) {
                     return val;
                   }
                 })
-                .map((val) => {
+                .map((val,index) => {
                   return (
                     <li
+                      id="li"
                       className="dropdown-item d-flex align-items-center gap-2 py-2 px-2"
                       onClick={() => {
-                        setCity(val.value);
+                        setCity(val);
+                        selectedCity(val,index)
                       }}
+                      
                     >
-                      {val.name}
+                      {val}
                     </li>
                   );
                 })}
@@ -75,4 +71,4 @@ const Dropdown2 = ({item}) => {
   );
 };
 
-export default Dropdown2;
+export default Dropdown;

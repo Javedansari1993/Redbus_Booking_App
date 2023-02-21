@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Calender from "./Calender";
 import Dropdown from "./Dropdown";
 import bgimage from "../images/bgimage.jpg";
-
+import { useDispatch, useSelector } from "react-redux";
+import { setBusLocation } from "../../redux/action/action";
 const Selector = () => {
-  const dropdownData = [
-    { id: 1, value: "From",name:""},
-    { id: 2, value: "To",name:""},
-  ];
+  let fromCityList = ["Mumbai", "Delhi", "Chennai", "Calcutta"];
+  const [cityList, setCityList] = useState(["select From City first"]);
+  const [location, setLocation] = useState({ pickPoint: "", dropPoint: "" });
+
+  function fromCity(from, index) {
+    fromCityList.splice(index, 1);
+    // console.log("from",from)
+    setCityList(fromCityList);
+    setLocation({ ...location, pickPoint: from });
+  }
+  function toCity(to, index) {
+    // console.log("to",to)
+    setLocation({ ...location, dropPoint: to });
+  }
+
+  // console.log("location", location)
+  useState(() => {}, [cityList]);
+
+  const buslocation = useSelector((state) => state.busLocation);
+  const dispatch = useDispatch();
+  // console.log("buslocation", buslocation);
+
   return (
     <div
       className="container-fluid"
@@ -23,17 +42,15 @@ const Selector = () => {
         className="row justify-content-center g-0 position-relative"
         style={{ paddingTop: "200px", zIndex: 1 }}
       >
-        {
-          dropdownData.map((item)=>{
-            return <Dropdown key={item.id} item={item}/>
-          })
-        }
-        <Calender className="col-sm-6"/>
+        <Dropdown val="From" cityList={fromCityList} selectedCity={fromCity} />
+        <Dropdown val="To" cityList={cityList} selectedCity={toCity} />
+        <Calender className="col-sm-6" />
       </div>
       <Link
         to="./AvailableBus"
         className="position-absolute btn btn-warning rounded fw-bold text-white mt-1"
         style={{ top: "79%", left: "45%", width: "10%" }}
+        onClick={() => setBusLocation(dispatch, location)}
       >
         Search
       </Link>

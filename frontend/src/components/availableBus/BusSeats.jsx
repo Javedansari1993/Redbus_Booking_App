@@ -1,6 +1,7 @@
 import React from 'react'
+// import busSeatData from './busSeatData';
 
-const BusSeats = ({busSeatData}) => {
+const BusSeats = ({dataBusSeat,prices}) => {
   return (
     <div class="col-8 d-flex flex-column">
             <div className="border border-1 d-flex justify-content-between align-items-center shadow rounded">
@@ -12,7 +13,7 @@ const BusSeats = ({busSeatData}) => {
               </div>
               <div className="flex-grow-1  d-flex-column mx-2 p-2">
                 <div className="d-flex justify-content-between align-items-center">
-                  {busSeatData[2].seatImg.map((item) => {
+                  {dataBusSeat.seatLeft.map((item) => {
                     return (
                       <img
                         alt="busSeat"
@@ -25,7 +26,7 @@ const BusSeats = ({busSeatData}) => {
                   })}
                 </div>
                 <div className="d-flex justify-content-between align-items-center my-2">
-                  {busSeatData[2].seatImg.map((item) => {
+                  {dataBusSeat.seatMid.map((item) => {
                     return (
                       <img
                         alt="busSeat"
@@ -38,7 +39,7 @@ const BusSeats = ({busSeatData}) => {
                   })}
                 </div>
                 <div className="d-flex flex-row-reverse align-items-center gap-3 mt-4">
-                  {busSeatData[2].seatImg.slice(0, 5).map((item) => {
+                  {dataBusSeat.seatRight.map((item) => {
                     return (
                       <img
                         alt="busSeat"
@@ -61,46 +62,46 @@ const BusSeats = ({busSeatData}) => {
                   Lower Sheet
                 </div>
                 <div className="flex-grow-1  d-flex-column mx-2 p-2">
-                  <div className="d-flex justify-content-between align-items-center">
-                    {busSeatData[2].seatImg.map((item) => {
-                      return (
-                        <img
-                          alt="busSeat"
-                          id="li"
-                          src={item.value}
-                          style={{ width: "55px" }}
-                          className="border border-1 text-center rounded"
-                        />
-                      );
-                    })}
-                  </div>
-                  <div className="d-flex justify-content-between align-items-center my-2">
-                    {busSeatData[2].seatImg.map((item) => {
-                      return (
-                        <img
-                          alt="busSeat"
-                          id="li"
-                          src={item.value}
-                          style={{ width: "55px" }}
-                          className="border border-1 text-center rounded"
-                        />
-                      );
-                    })}
-                  </div>
-                  <div className="d-flex flex-row-reverse align-items-center gap-3 mt-3">
-                    {busSeatData[2].seatImg.slice(0, 5).map((item) => {
-                      return (
-                        <img
-                          alt="busSeat"
-                          id="li"
-                          src={item.value}
-                          style={{ width: "55px" }}
-                          className="border border-1 text-center rounded"
-                        />
-                      );
-                    })}
-                  </div>
+                <div className="d-flex justify-content-between align-items-center">
+                  {dataBusSeat.seatLeft.map((item) => {
+                    return (
+                      <img
+                        alt="busSeat"
+                        id="li"
+                        src={item.value}
+                        style={{ width: "55px" }}
+                        className="border border-1 text-center rounded"
+                      />
+                    );
+                  })}
                 </div>
+                <div className="d-flex justify-content-between align-items-center my-2">
+                  {dataBusSeat.seatMid.map((item) => {
+                    return (
+                      <img
+                        alt="busSeat"
+                        id="li"
+                        src={item.value}
+                        style={{ width: "55px" }}
+                        className="border border-1 text-center rounded"
+                      />
+                    );
+                  })}
+                </div>
+                <div className="d-flex flex-row-reverse align-items-center gap-3 mt-4">
+                  {dataBusSeat.seatRight.map((item) => {
+                    return (
+                      <img
+                        alt="busSeat"
+                        id="li"
+                        src={item.value}
+                        style={{ width: "55px" }}
+                        className="border border-1 text-center rounded "
+                      />
+                    );
+                  })}
+                </div>
+              </div>
               </div>
             </div>
           </div>

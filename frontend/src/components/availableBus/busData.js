@@ -8,7 +8,9 @@ const busData = [
        price:"$899",
        depTime:"22:45,16NOV",
        arrTime:"06:20,17NOV",
-       timeduration:"07hrs59min"
+       timeduration:"07hrs59min",
+       pickPoint: "Delhi",
+       dropPoint: "Mumbai",
     },
     {
         id:2, name :"Zing Smart Bus",
@@ -18,7 +20,9 @@ const busData = [
         price:"$899",
         depTime:"22:45,16NOV",
         arrTime:"06:20,17NOV",
-        timeduration:"07hrs59min"
+        timeduration:"07hrs59min",
+        pickPoint: "Mumbai",
+        dropPoint: "Delhi",
      },
      {
         id:3, name :"Safar Exppress Bus",
@@ -28,7 +32,9 @@ const busData = [
         price:"$899",
         depTime:"22:45,16NOV",
         arrTime:"06:20,17NOV",
-        timeduration:"07hrs59min"
+        timeduration:"07hrs59min",
+        pickPoint: "Mumbai",
+        dropPoint: "Hedrabad",
      },
      {
         id:4, name :"Intercity Smart Bus",
@@ -38,7 +44,9 @@ const busData = [
         price:"$899",
         depTime:"22:45,16NOV",
         arrTime:"06:20,17NOV",
-        timeduration:"07hrs59min"
+        timeduration:"07hrs59min",
+        pickPoint: "Hedrabad",
+        dropPoint: "Mumbai",
      },
      {
          id:5, name :"Zing Smart Bus",
@@ -48,7 +56,9 @@ const busData = [
          price:"$899",
          depTime:"22:45,16NOV",
          arrTime:"06:20,17NOV",
-         timeduration:"07hrs59min"
+         timeduration:"07hrs59min",
+         pickPoint: "Delhi",
+         dropPoint: "Hedrabad",
       },
       {
          id:6, name :"Safar Exppress Bus",
@@ -58,7 +68,9 @@ const busData = [
          price:"$899",
          depTime:"22:45,16NOV",
          arrTime:"06:20,17NOV",
-         timeduration:"07hrs59min"
+         timeduration:"07hrs59min",
+         pickPoint: "Hedrabad",
+         dropPoint: "Delhi",
       },
      
 ];

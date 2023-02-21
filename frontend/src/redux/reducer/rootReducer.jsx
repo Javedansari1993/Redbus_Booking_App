@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
-import selectCurrencyReducer from "./selectCurrencyReducer";
+import busDetailReducers from "../reducer/busDetailReducers";
+import buslocationReducer from "./busLocationReducer";
 
 //main reducer of the App
 const rootReducer = combineReducers ({
-    selectCurrency:selectCurrencyReducer,
+    busDetail:busDetailReducers,
+    busLocation:buslocationReducer
 })
 
 
