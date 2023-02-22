@@ -1,17 +1,18 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-const PayementProceed = () => {
+const PayementProceed = ({mainitem, prices}) => {
+  console.log("mainItem",mainitem)
   return (
     <div class="col-4 border border-1 mx-2 p-2 rounded mb-3 shadow">
             <small className="fw-bold">Boarding and Dropping</small>
             <div className="d-flex justify-content-center  align-items-center">
               <div className="flex-grow-1 my-2">
                 <div className="d-block fw-bold" style={{ fontSize: "11px" }}>
-                  -Delhi
+                  -{mainitem.pickPoint}
                 </div>
                 <div className="text-muted" style={{ fontSize: "11px" }}>
-                  Taxi Service, Lal Qila
+                  {mainitem.depPoint}
                 </div>
               </div>
               <div className="fw-bold" style={{ fontSize: "12px" }}>
@@ -21,10 +22,10 @@ const PayementProceed = () => {
             <div className="d-flex justify-content-center  align-items-center">
               <div className="flex-grow-1 my-2">
                 <div className="d-block fw-bold" style={{ fontSize: "11px" }}>
-                  -Mumbai
+                  -{mainitem.dropPoint}
                 </div>
                 <div className="text-muted" style={{ fontSize: "11px" }}>
-                  Taxi Service, India Gate
+                {mainitem.arrPoint}
                 </div>
               </div>
               <div className="fw-bold" style={{ fontSize: "12px" }}>
@@ -55,7 +56,7 @@ const PayementProceed = () => {
                 INR 750.00
               </div>
             </div>
-            <Link  to="/CustomerDetails" className="btn btn-warning rounded fw-bold text-white w-100 mt-1">Proceed to Payment</Link>
+            <Link  to="/CustomerDetails" className="btn btn-warning rounded fw-bold text-white w-100 mt-3">Proceed to Payment</Link>
           </div>
   )
 }

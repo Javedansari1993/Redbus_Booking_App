@@ -1,6 +1,6 @@
 import actionTypes from "../actionType/actionType";
 
-const initialState ={}
+const initialState ={ pickPoint: "Mumbai", dropPoint: "Delhi" }
 
 const buslocationReducer = (state=initialState, action) =>{
     

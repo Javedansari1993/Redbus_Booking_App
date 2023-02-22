@@ -1,25 +1,23 @@
 import React, { useState } from "react";
 import BusSeats from "./BusSeats";
 import PayementProceed from "./PayementProceed";
-const BusDetails = ({ busSeatData }) => {
+const BusDetails = ({ mainitem }) => {
+    const busSeatData = mainitem.busSeatData
   const seatPrices = ["All", "599", "699", "899", "1199"];
- const [prices, setPrices] = useState("All")
- const [seatDate, setSeatData] = useState(busSeatData)
- console.log("prices", prices)
- function handleSeat (e){
-  setPrices(e.target.value)
-  // console.log(e.target.checked)
-  if(e.target.checked===true && prices==="All"){
-    setSeatData(busSeatData)
-  }else if(e.target.checked===true){
-   const seatPrice =  Object.values(busSeatData).filter((item)=>{
-    return item.prices===prices
-  })
-  setSeatData(seatPrice)
-}
-  // console.log("seatPrices", typeof(seatDate))
-
- }
+  const [prices, setPrices] = useState("All");
+  const [seatDate, setSeatData] = useState(busSeatData);
+  console.log("prices", prices);
+  function handleSeat(e) {
+    setPrices(e.target.value);
+    if (e.target.checked === true && prices === "All") {
+      return setSeatData(busSeatData);
+    } else if (e.target.checked === true) {
+      const seatPrice = Object.values(busSeatData).filter((item) => {
+        return item.prices === prices;
+      });
+      setSeatData(seatPrice);
+    }
+  }
   return (
     <div className="container">
       {seatDate.map((item) => {
@@ -84,8 +82,8 @@ const BusDetails = ({ busSeatData }) => {
               </div>
             </div>
             <div class="d-flex">
-              <BusSeats dataBusSeat={item} prices={prices}/>
-              <PayementProceed />
+              <BusSeats dataBusSeat={item} prices={prices} />
+              <PayementProceed  mainitem={mainitem}/>
             </div>
           </div>
         );

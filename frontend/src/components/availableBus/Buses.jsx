@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import BusDetails from "./BusDetails";
 import busSeatData from "./busSeatData";
 const Buses = ({ item }) => {
+
+  console.log("item12", item)
   const [sheet, setSheet] = useState(false)
   return (
     <div class="container border border-1 mr-2 mt-2 rounded">
@@ -51,8 +53,7 @@ const Buses = ({ item }) => {
           <h6>{item.price}</h6>
           <button className="btn btn-warning my-1" onClick={()=>setSheet(!sheet)}>View Seat</button>
         </div>
-        {sheet &&  <BusDetails busSeatData={busSeatData}/> }
-       
+        {sheet &&  <BusDetails mainitem={item}/> }
       </div>
     </div>
   );

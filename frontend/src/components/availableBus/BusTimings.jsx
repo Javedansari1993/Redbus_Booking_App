@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Buses from "./Buses";
-import busData from "./busData";
+// import busData from "./busData";
 import Pagination from "./Pagination";
 // import axios from "axios";
 import { useSelector } from "react-redux";
@@ -23,8 +23,8 @@ const BusTimings = () => {
 const buslocation= useSelector((state) => state.busLocation);
 const picklocation = buslocation.busLocation.pickPoint
 const droplocation = buslocation.busLocation.dropPoint
-
-const bus  = busData.filter((item)=>{
+const busdetails = useSelector((state) => state.busDetail);
+const bus  = busdetails.filter((item)=>{
   return item.pickPoint===picklocation && item.dropPoint===droplocation
 })
 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Calender from "./Calender";
 import Dropdown from "./Dropdown";
 import bgimage from "../images/bgimage.jpg";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { setBusLocation } from "../../redux/action/action";
 const Selector = () => {
   let fromCityList = ["Mumbai", "Delhi", "Chennai", "Calcutta"];
@@ -24,7 +24,7 @@ const Selector = () => {
   // console.log("location", location)
   useState(() => {}, [cityList]);
 
-  const buslocation = useSelector((state) => state.busLocation);
+  // const buslocation = useSelector((state) => state.busLocation);
   const dispatch = useDispatch();
   // console.log("buslocation", buslocation);
 
