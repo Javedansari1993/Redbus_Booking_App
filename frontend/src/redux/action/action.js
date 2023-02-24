@@ -31,9 +31,16 @@ export const fetchBusDetail = (dispatch,busdetail) => {
   };
 
 export const setBusLocation = (dispatch, location) => {
-  // console.log(location);
   return dispatch({
     type: actionTypes.LOCTION_SUCCESS,
     payload: location,
+  });
+};
+
+export const getSeatNumber= (dispatch, item) => {
+  // console.log("seatnumber",item)
+  return dispatch({
+    type: actionTypes.SEATNUMBER_SUCCESS,
+    payload:  item,
   });
 };

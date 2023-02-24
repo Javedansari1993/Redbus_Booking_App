@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Buses from "./Buses";
 // import busData from "./busData";
 import Pagination from "./Pagination";
@@ -21,21 +21,29 @@ const BusTimings = () => {
 //   }
 
 const buslocation= useSelector((state) => state.busLocation);
-const picklocation = buslocation.busLocation.pickPoint
-const droplocation = buslocation.busLocation.dropPoint
-const busdetails = useSelector((state) => state.busDetail);
-const bus  = busdetails.filter((item)=>{
-  return item.pickPoint===picklocation && item.dropPoint===droplocation
-})
+const busdetails = useSelector((state) => state.busDetail.BusDetail);
+const [selectedBus,setSelectedBus] =useState(busdetails)
 
-// console.log("bus",bus)
+function setBus(){
+  if(buslocation.busLocation.length>0){
+    setSelectedBus( busdetails.filter((item)=>{
+   return item.pickPoint===buslocation.busLocation[0] && item.dropPoint===buslocation.busLocation[1]
+ }))
+ }else {
+  return selectedBus
+ }
+}
+ useEffect(() => {
+  setBus()
+}, []);
+
 
   return (
     <div class="col-md-9 col-sm-12">
       <div class="d-flex flex-column mb-3">
        <Pagination/>
         <div className="">
-          {bus.map((item) => {
+          {selectedBus.map((item) => {
             return <Buses item={item} />;
           })}
         </div>

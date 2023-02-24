@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import BusDetails from "./BusDetails";
-import busSeatData from "./busSeatData";
 const Buses = ({ item }) => {
-
-  console.log("item12", item)
   const [sheet, setSheet] = useState(false)
   return (
     <div class="container border border-1 mr-2 mt-2 rounded">

@@ -6,19 +6,19 @@ import bgimage from "../images/bgimage.jpg";
 import { useDispatch} from "react-redux";
 import { setBusLocation } from "../../redux/action/action";
 const Selector = () => {
-  let fromCityList = ["Mumbai", "Delhi", "Chennai", "Calcutta"];
+  let fromCityList = ["Mumbai", "Delhi", "Hedrabad"];
   const [cityList, setCityList] = useState(["select From City first"]);
-  const [location, setLocation] = useState({ pickPoint: "", dropPoint: "" });
+  const [location, setLocation] = useState([]);
 
   function fromCity(from, index) {
     fromCityList.splice(index, 1);
     // console.log("from",from)
     setCityList(fromCityList);
-    setLocation({ ...location, pickPoint: from });
+    setLocation([...location, from]);
   }
   function toCity(to, index) {
     // console.log("to",to)
-    setLocation({ ...location, dropPoint: to });
+    setLocation( [...location, to]);
   }
 
   // console.log("location", location)

@@ -1,8 +1,12 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 
 const PayementProceed = ({mainitem, prices}) => {
-  console.log("mainItem",mainitem)
+
+  const busSeatNumber = useSelector((state)=>state.busSeatNumber.busSeatNumber)
+  const {id}=mainitem.busSeatData
+  console.log("id",id)
   return (
     <div class="col-4 border border-1 mx-2 p-2 rounded mb-3 shadow">
             <small className="fw-bold">Boarding and Dropping</small>
@@ -16,7 +20,7 @@ const PayementProceed = ({mainitem, prices}) => {
                 </div>
               </div>
               <div className="fw-bold" style={{ fontSize: "12px" }}>
-                22:45
+                {mainitem.depTime}
               </div>
             </div>
             <div className="d-flex justify-content-center  align-items-center">
@@ -29,7 +33,7 @@ const PayementProceed = ({mainitem, prices}) => {
                 </div>
               </div>
               <div className="fw-bold" style={{ fontSize: "12px" }}>
-                08:20
+              {mainitem.arrTime}
               </div>
             </div>
             <hr className="border border-dark my-1" />
@@ -38,7 +42,7 @@ const PayementProceed = ({mainitem, prices}) => {
                 Seat No
               </div>
               <div className="fw-bold" style={{ fontSize: "12px" }}>
-                07
+                {busSeatNumber ? busSeatNumber.id : "1"}
               </div>
             </div>
             <hr className="border border-dark my-1" />
@@ -49,11 +53,11 @@ const PayementProceed = ({mainitem, prices}) => {
                   -Amount
                 </div>
                 <div className="text-muted" style={{ fontSize: "11px" }}>
-                  Taxi Service, India Gate
+                  Taxi Service, {mainitem.dropPoint}
                 </div>
               </div>
               <div className="fw-bold" style={{ fontSize: "15px" }}>
-                INR 750.00
+                INR {prices ? prices : "899"}.00
               </div>
             </div>
             <Link  to="/CustomerDetails" className="btn btn-warning rounded fw-bold text-white w-100 mt-3">Proceed to Payment</Link>
