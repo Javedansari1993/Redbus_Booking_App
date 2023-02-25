@@ -1,7 +1,14 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { getSingleBusDetail } from "../../redux/action/action";
 import BusDetails from "./BusDetails";
 const Buses = ({ item }) => {
   const [sheet, setSheet] = useState(false)
+  const dispatch = useDispatch()
+  function handbusDetail(){
+    setSheet(!sheet)
+    getSingleBusDetail(dispatch,item)
+  }
   return (
     <div class="container border border-1 mr-2 mt-2 rounded">
       <div class="row">
@@ -48,7 +55,7 @@ const Buses = ({ item }) => {
             Per Ticket Price
           </div>
           <h6>{item.price}</h6>
-          <button className="btn btn-warning my-1" onClick={()=>setSheet(!sheet)}>View Seat</button>
+          <button className="btn btn-warning my-1" onClick={handbusDetail}>View Seat</button>
         </div>
         {sheet &&  <BusDetails mainitem={item}/> }
       </div>

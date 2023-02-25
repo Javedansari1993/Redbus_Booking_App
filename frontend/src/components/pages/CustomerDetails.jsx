@@ -4,9 +4,13 @@ import Footer from "../footer/Footer";
 import Navbar from "../navbar/Navbar";
 
 const CustomerDetails = () => {
+  const obj = {
+    name:"Javed",
+    profile:"Profile"
+  }
   return (
     <div>
-      <Navbar />
+      <Navbar item={obj}/>
       <CustomerInfo/>
       <Footer />
     </div>

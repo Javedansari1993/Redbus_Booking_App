@@ -4,9 +4,13 @@ import Navbar from "../navbar/Navbar";
 import CustomerBusDeatails from "../customerDetailpage/CustomerBusDeatails";
 
 const TicketConfirmation = () => {
+  const obj = {
+    name:"Javed",
+    profile:"Profile"
+  }
   return (
     <div>
-      <Navbar />
+      <Navbar item={obj}/>
       <div className="container" style={{ marginTop: "80px" }}>
         <div
           className="d-flex  flex-column gap-2justify-content-center align-items-center border border-2 rounded shadow p-4 my-5"

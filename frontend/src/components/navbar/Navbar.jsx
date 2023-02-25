@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({item}) => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-light border border-3 px-4 fixed-top">
@@ -34,10 +34,10 @@ const Navbar = () => {
             </ul>
             <div className="d-flex" role="search">
               <button className="btn btn-warning mx-4 px-4" type="submit">
-                Login
+                {item.name}
               </button>
               <button className="mx-4 px-4 rounded" type="submit">
-                Register
+                {item.profile}
               </button>
             </div>
           </div>

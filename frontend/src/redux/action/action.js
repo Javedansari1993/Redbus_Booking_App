@@ -44,3 +44,11 @@ export const getSeatNumber= (dispatch, item) => {
     payload:  item,
   });
 };
+
+export const getSingleBusDetail= (dispatch, item) => {
+  // console.log("seatnumber",item)
+  return dispatch({
+    type: actionTypes.SINGLBUSDETAIL_SUCCESS,
+    payload:  item,
+  });
+};

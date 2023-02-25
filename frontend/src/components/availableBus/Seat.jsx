@@ -3,7 +3,7 @@ import { useDispatch} from "react-redux";
 import { getSeatNumber } from "../../redux/action/action";
 
 const Seat = ({ data,item}) => {
-  console.log("item", item)
+  // console.log("item", item)
   const [seatColor, setSeatColor] = useState("");
   const [selectSeat, setselectSeat] = useState(false);
   const dispatch = useDispatch()

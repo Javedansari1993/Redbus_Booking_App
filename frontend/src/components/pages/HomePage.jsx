@@ -7,9 +7,13 @@ import Reviews from "../homepage/Reviews";
 import Selector from "../homepage/Selector";
 
 const HomePage = () => {
+  const obj = {
+    name:"Login",
+    profile:"Register"
+  }
   return (
     <div>
-      <Navbar />
+      <Navbar item={obj}/>
       <Selector />
       <Cards/>
       <Heading/>

@@ -1,17 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 
 const CustomerBusDeatails = () => {
-    const item = {
-        id: 1,
-        name: "Intercity Smart Bus",
-        seatType: ["A/C Sleeper(2+1)", "|", "Left Seat", "|", "Window Seat"],
-        seatInfo: ["Live Tracking", "Policies", "Photos", "Amenities", "Review"],
-        rating: "4.5",
-        price: "$899",
-        depTime: "22:45,16NOV",
-        arrTime: "06:20,17NOV",
-        timeduration: "07hrs59min",
-      };
+  const item = useSelector((state)=>state.singleBusDetail.singleBusDetails)
+
+    // const  seatType = ["A/C Sleeper(2+1)", "|", "Left Seat", "|", "Window Seat"]
+    
   return (
     <div class="border border-2 my-2 rounded shadow p-1">
             <div class="d-flex-column p-2">
@@ -24,7 +18,7 @@ const CustomerBusDeatails = () => {
               </small>
               <small className="d-flex gap-3 py-2">
                 {item.seatType.map((val) => {
-                  return <small className="fst-normal text-muted">{val}</small>;
+                return <small className="fst-normal text-muted">{val}</small>;
                 })}
               </small>
               <div className="d-flex my-1">
@@ -40,18 +34,18 @@ const CustomerBusDeatails = () => {
               <div className="d-flex my-2 gap-5">
                 <div>
                   <div className="fw-bold" style={{ fontSize: "12px" }}>
-                    Delhi
+                    {item.pickPoint}
                   </div>
                   <div className="text-muted" style={{ fontSize: "12px" }}>
-                    Texi Service, Lal Qila
+                    {item.depPoint}
                   </div>
                 </div>
                 <div>
                   <div className="fw-bold" style={{ fontSize: "12px" }}>
-                    Mumbai
+                  {item.dropPoint}
                   </div>
                   <div className="text-muted" style={{ fontSize: "12px" }}>
-                    Texi Service, India Gate
+                  {item.arrPoint}
                   </div>
                 </div>
               </div>

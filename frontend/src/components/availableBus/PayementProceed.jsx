@@ -2,11 +2,9 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 
-const PayementProceed = ({mainitem, prices}) => {
+const PayementProceed = ({mainitem,index,prices}) => {
 
   const busSeatNumber = useSelector((state)=>state.busSeatNumber.busSeatNumber)
-  const {id}=mainitem.busSeatData
-  console.log("id",id)
   return (
     <div class="col-4 border border-1 mx-2 p-2 rounded mb-3 shadow">
             <small className="fw-bold">Boarding and Dropping</small>
@@ -57,7 +55,7 @@ const PayementProceed = ({mainitem, prices}) => {
                 </div>
               </div>
               <div className="fw-bold" style={{ fontSize: "15px" }}>
-                INR {prices ? prices : "899"}.00
+                INR {mainitem ? prices : mainitem.busSeatData[index].prices}.00
               </div>
             </div>
             <Link  to="/CustomerDetails" className="btn btn-warning rounded fw-bold text-white w-100 mt-3">Proceed to Payment</Link>
