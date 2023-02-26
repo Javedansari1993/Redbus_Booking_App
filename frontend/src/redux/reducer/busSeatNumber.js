@@ -1,18 +1,26 @@
 import actionTypes from "../actionType/actionType";
 
-const busSeatNumber = {};
+const initialState = {
+    busSelectedSeatIds : []
+};
 
-const busSeatNumberReducer = (state = busSeatNumber, action) => {
+const busSeatNumberReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SEATNUMBER_SUCCESS:
-      return {
-        ...state,
-        busSeatNumber: action.payload,
-      };
-
+       const busids =  [...state.busSelectedSeatIds]
+       const Index =  busids.findIndex((val)=>val===action.payload.id)
+      //  console.log("index",Index)
+      //  console.log("ids",action.payload.id)
+       if (Index===-1) {
+         busids.push(action.payload.id)
+       } else {
+        busids.splice(Index,1)
+       }
+       return {
+        busSelectedSeatIds : busids
+       }
     case actionTypes.SEATNUMBER_ERROR:
       return state;
-
     default:
       return state;
   }

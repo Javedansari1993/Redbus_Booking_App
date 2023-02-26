@@ -21,7 +21,7 @@ const SearchBox = ({ dept }) => {
         {dept.name1.map((item) => {
           return (
             <div>
-              <input type="checkbox" name={item.value} value={item.value} />
+              <input type="radio" name="some name" value={item.value} />
               <label className="px-2" htmlFor="vehicle1">
                 <small className="">{item.value}</small>
               </label>

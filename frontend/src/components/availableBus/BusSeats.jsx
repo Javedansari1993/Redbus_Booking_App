@@ -2,8 +2,8 @@ import React from 'react'
 import Seat from './Seat'
 // import busSeatData from './busSeatData';
 
-const BusSeats = ({dataBusSeat,prices}) => {
-
+const BusSeats = ({dataBusSeat}) => {
+    //  console.log("databus" ,dataBusSeat)
   return (
     <div class="col-8 d-flex flex-column">
             <div className="border border-1 d-flex justify-content-between align-items-center shadow rounded">
@@ -47,7 +47,7 @@ const BusSeats = ({dataBusSeat,prices}) => {
                 </div>
                 <div className="flex-grow-1  d-flex-column mx-2 p-2">
                 <div className="d-flex justify-content-between align-items-center">
-                  {dataBusSeat.seatLeft.map((item,index) => {
+                  {dataBusSeat.seatLeft.map((item) => {
                     return (
                       <Seat data={item.value} item={item}/>
                     );

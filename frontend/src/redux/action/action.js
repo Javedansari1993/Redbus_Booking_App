@@ -52,3 +52,13 @@ export const getSingleBusDetail= (dispatch, item) => {
     payload:  item,
   });
 };
+
+export const getPrice= (dispatch, price) => {
+  // console.log("seatnumber",item)
+  return dispatch({
+    type: actionTypes.SETPRICE_SUCCESS,
+    payload:  price,
+  });
+};
+
+

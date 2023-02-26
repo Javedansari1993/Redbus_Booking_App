@@ -1,31 +1,21 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getPrice } from "../../redux/action/action";
 import BusSeats from "./BusSeats";
 import PayementProceed from "./PayementProceed";
 const BusDetails = ({ mainitem }) => {
-  const busSeatData = mainitem.busSeatData;
-  const seat = {
-    seatPrices: ["All", "599", "699", "899", "1199"],
-    seatInfo: [
-      { id: 1, value: "Vacant Seats", selected: false },
-      { id: 2, value: "Reserved Seats", selected: false },
-      { id: 3, value: "Selexted Seats", selected: false },
-    ],
-  };
+  // console.log("mainitem", mainitem)
+
+  const seat = useSelector((state)=>state.busDetail.seat)
+
+  // const busSeatData = mainitem.busSeatData;
+  const dispatch = useDispatch()
   // console.log("mainitem", busSeatData);
-  const [prices, setPrices] = useState("All");
-  const [seatDate, setSeatData] = useState(busSeatData);
-  console.log("prices", prices);
-  function handleSeat(e) {
-    setPrices(e.target.value);
-    if (e.target.checked === true && prices === "All") {
-      return setSeatData(busSeatData);
-    } else if (e.target.checked === true) {
-      const seatPrice =busSeatData.filter((item) => {
-        return item.prices === prices;
-      });
-      setSeatData(seatPrice);
-    }
+  const [seatDate, setSeatData] = useState(mainitem.busSeatData);
+  const handleSeat= (e)=> {
+    getPrice(dispatch,e.target.value)
   }
+    
   return (
     <div className="container">
       <div class="d-flex flex-column">
@@ -43,9 +33,9 @@ const BusDetails = ({ mainitem }) => {
                 return (
                   <div className="d-flex justify-content-between align-items-center border border-1 px-3 py-1 rounded shadow">
                     <input
-                      type="checkbox"
+                      type="radio"
                       id="vehicle1"
-                      name={item}
+                      name="some name"
                       value={item}
                       style={{ fontSize: "12px" }}
                       onChange={handleSeat}
@@ -69,9 +59,9 @@ const BusDetails = ({ mainitem }) => {
               return (
                 <div className="d-flex justify-content-start align-items-center">
                   <input
-                    type="checkbox"
+                    type="radio"
                     id="vehicle1"
-                    name="vehicle1"
+                    name="some name"
                     value="Bike"
                     style={{ fontSize: "12px" }}
                   />
@@ -90,8 +80,8 @@ const BusDetails = ({ mainitem }) => {
         {seatDate.map((item) => {
           return (
             <div class="d-flex">
-              <BusSeats dataBusSeat={item} prices={prices} />
-              <PayementProceed mainitem={mainitem} prices={prices}/>
+              <BusSeats dataBusSeat={item}/>
+              <PayementProceed mainitem={mainitem}/>
             </div>
           );
         })}

@@ -2,9 +2,12 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 
-const PayementProceed = ({mainitem,index,prices}) => {
+const PayementProceed = ({mainitem,index}) => {
 
-  const busSeatNumber = useSelector((state)=>state.busSeatNumber.busSeatNumber)
+  const busSeatNumber = useSelector((state)=>state.busSeatNumber.busSelectedSeatIds)
+  const prices = useSelector((state)=>state.busPrice.price)
+  console.log("pri",prices)
+  const seatNumber = busSeatNumber.join()
   return (
     <div class="col-4 border border-1 mx-2 p-2 rounded mb-3 shadow">
             <small className="fw-bold">Boarding and Dropping</small>
@@ -37,10 +40,10 @@ const PayementProceed = ({mainitem,index,prices}) => {
             <hr className="border border-dark my-1" />
             <div className="d-flex align-items-center">
               <div className="fw-bold flex-grow-1" style={{ fontSize: "12px" }}>
-                Seat No
+                Seat No 
               </div>
               <div className="fw-bold" style={{ fontSize: "12px" }}>
-                {busSeatNumber ? busSeatNumber.id : "1"}
+                {seatNumber ? seatNumber : "1"}
               </div>
             </div>
             <hr className="border border-dark my-1" />

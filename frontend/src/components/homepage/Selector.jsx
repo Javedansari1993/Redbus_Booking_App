@@ -6,18 +6,19 @@ import bgimage from "../images/bgimage.jpg";
 import { useDispatch} from "react-redux";
 import { setBusLocation } from "../../redux/action/action";
 const Selector = () => {
-  let fromCityList = ["Mumbai", "Delhi", "Hedrabad"];
-  const [cityList, setCityList] = useState(["select From City first"]);
+  // let fromCityList = ["Mumbai", "Delhi", "Hedrabad"];
+  const [cityList, setCityList] = useState(["Mumbai", "Delhi", "Hedrabad"]);
   const [location, setLocation] = useState([]);
 
   function fromCity(from, index) {
-    fromCityList.splice(index, 1);
+    cityList.splice(index, 1);
     // console.log("from",from)
-    setCityList(fromCityList);
+    // setCityList(fromCityList);
     setLocation([...location, from]);
   }
   function toCity(to, index) {
     // console.log("to",to)
+    cityList.splice(index, 1);
     setLocation( [...location, to]);
   }
 
@@ -42,7 +43,7 @@ const Selector = () => {
         className="row justify-content-center g-0 position-relative"
         style={{ paddingTop: "200px", zIndex: 1 }}
       >
-        <Dropdown val="From" cityList={fromCityList} selectedCity={fromCity} />
+        <Dropdown val="From" cityList={cityList} selectedCity={fromCity} />
         <Dropdown val="To" cityList={cityList} selectedCity={toCity} />
         <Calender className="col-sm-6" />
       </div>

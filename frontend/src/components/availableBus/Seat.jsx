@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch} from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { getSeatNumber } from "../../redux/action/action";
 
-const Seat = ({ data,item}) => {
+const Seat = ({item}) => {
   // console.log("item", item)
+  const prices = useSelector((state)=>state.busPrice)
   const [seatColor, setSeatColor] = useState("");
   const [selectSeat, setselectSeat] = useState(false);
   const dispatch = useDispatch()
-
+ console.log("vlsjd",item.prices)
   function handleSelectSeat() {
     if (selectSeat === false) {
       setSeatColor("blue");
@@ -17,13 +18,14 @@ const Seat = ({ data,item}) => {
       setselectSeat(false);
     }
     getSeatNumber(dispatch, item)
+    // console.log("selectseat",item)
   }
   return (
     <div>
       <img
         alt="busSeat"
         id="li"
-        src={data}
+        src={item.value}
         className="border border-1 text-center rounded"
         onClick={handleSelectSeat}
         style={{

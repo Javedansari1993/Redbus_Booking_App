@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import busDetailReducers from "../reducer/busDetailReducers";
 import buslocationReducer from "./busLocationReducer";
+import busPriceReducer from "./busPriceReducer";
 import busSeatNumberReducer from "./busSeatNumber";
 import singleBusDetailsReducer from "./singleBusDetail";
 
@@ -9,7 +10,8 @@ const rootReducer = combineReducers ({
     busDetail:busDetailReducers,
     busLocation:buslocationReducer,
     busSeatNumber:busSeatNumberReducer,
-    singleBusDetail : singleBusDetailsReducer
+    singleBusDetail : singleBusDetailsReducer,
+    busPrice:busPriceReducer
 })
 
 
