@@ -61,4 +61,12 @@ export const getPrice= (dispatch, price) => {
   });
 };
 
+export const getForm= (dispatch, formValue) => {
+  // console.log("seatnumber",item)
+  return dispatch({
+    type: actionTypes.FORM_SUCCESS,
+    payload:  formValue,
+  });
+};
+
 

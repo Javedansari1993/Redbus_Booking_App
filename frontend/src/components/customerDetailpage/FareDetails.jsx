@@ -1,14 +1,16 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 const FareDetails = () => {
-  let basfare = 799
-  let total = 799+150-50
+  const prices = useSelector((state)=>state.busPrice.price.length>0?state.busPrice.price:"799")
+  console.log("type", typeof(prices))
+  let total = parseInt(prices)+150-50
   return (
     <div class="col border border-2 rounded shadow p-3 my-2 mb-4" style={{height:"40%"}}>
           <div className="fw-bold" style={{fontSize:"16px"}}>Fare Details</div>
           <div className="d-flex my-3">
             <div className="flex-grow-1" style={{fontSize:"14px"}}>Base Fare</div>
-            <div className="fw-bold" style={{fontSize:"18px"}}>${799}</div>
+            <div className="fw-bold" style={{fontSize:"18px"}}>${prices}</div>
           </div>
           <div className="d-flex my-3">
             <div className="flex-grow-1" style={{fontSize:"14px"}}>Tax</div>

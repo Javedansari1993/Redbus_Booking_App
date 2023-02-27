@@ -5,7 +5,7 @@ import Seat from './Seat'
 const BusSeats = ({dataBusSeat}) => {
     //  console.log("databus" ,dataBusSeat)
   return (
-    <div class="col-8 d-flex flex-column">
+    <div class="col-lg-8 col-sm-12 d-flex-column">
             <div className="border border-1 d-flex justify-content-between align-items-center shadow rounded">
               <div
                 className="p-2 fw-bold text-muted d-flex justify-content-between align-items-center"
@@ -22,14 +22,14 @@ const BusSeats = ({dataBusSeat}) => {
                   })}
                 </div>
                 <div className="d-flex justify-content-between align-items-center my-2">
-                  {dataBusSeat.seatMid.map((item,index) => {
+                  {dataBusSeat.seatMid.map((item) => {
                     return (
                       <Seat data={item.value} item={item}/>
                     );
                   })}
                 </div>
                 <div className="d-flex flex-row-reverse align-items-center gap-3 mt-4">
-                  {dataBusSeat.seatRight.map((item,index) => {
+                  {dataBusSeat.seatRight.map((item) => {
                     return (
                       <Seat data={item.value} item={item}/>
                     );

@@ -5,7 +5,7 @@ const Calender = () => {
   const [drop, setDrop] = useState(false);
   const [value, setValue] = useState(new Date());
   return (
-    <div className="col col-3">
+    <div className="col-md-3 col-sm-12">
       <div className="my-1">
         <div
           class="d-flex flex-column my-1 p-1 bg-light my-2 p-2 border border-3 rounded"

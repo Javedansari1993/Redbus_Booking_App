@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import busDetailReducers from "../reducer/busDetailReducers";
+import busFormReducer from "./busFormReducer";
 import buslocationReducer from "./busLocationReducer";
 import busPriceReducer from "./busPriceReducer";
 import busSeatNumberReducer from "./busSeatNumber";
@@ -11,7 +12,8 @@ const rootReducer = combineReducers ({
     busLocation:buslocationReducer,
     busSeatNumber:busSeatNumberReducer,
     singleBusDetail : singleBusDetailsReducer,
-    busPrice:busPriceReducer
+    busPrice:busPriceReducer,
+    busForm:busFormReducer
 })
 
 

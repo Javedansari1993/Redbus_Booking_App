@@ -6,10 +6,10 @@ const PayementProceed = ({mainitem,index}) => {
 
   const busSeatNumber = useSelector((state)=>state.busSeatNumber.busSelectedSeatIds)
   const prices = useSelector((state)=>state.busPrice.price)
-  console.log("pri",prices)
+
   const seatNumber = busSeatNumber.join()
   return (
-    <div class="col-4 border border-1 mx-2 p-2 rounded mb-3 shadow">
+    <div class="col-lg-4 col-sm-12 border border-1 mx-2 p-2 rounded mb-3 shadow">
             <small className="fw-bold">Boarding and Dropping</small>
             <div className="d-flex justify-content-center  align-items-center">
               <div className="flex-grow-1 my-2">
@@ -58,7 +58,7 @@ const PayementProceed = ({mainitem,index}) => {
                 </div>
               </div>
               <div className="fw-bold" style={{ fontSize: "15px" }}>
-                INR {mainitem ? prices : mainitem.busSeatData[index].prices}.00
+                INR {prices ? prices : "899"}.00
               </div>
             </div>
             <Link  to="/CustomerDetails" className="btn btn-warning rounded fw-bold text-white w-100 mt-3">Proceed to Payment</Link>

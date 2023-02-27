@@ -4,22 +4,22 @@ import { getPrice } from "../../redux/action/action";
 import BusSeats from "./BusSeats";
 import PayementProceed from "./PayementProceed";
 const BusDetails = ({ mainitem }) => {
-  // console.log("mainitem", mainitem)
+  console.log("mainitem", mainitem);
 
-  const seat = useSelector((state)=>state.busDetail.seat)
+  const seat = useSelector((state) => state.busDetail.seat);
 
   // const busSeatData = mainitem.busSeatData;
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   // console.log("mainitem", busSeatData);
   const [seatDate, setSeatData] = useState(mainitem.busSeatData);
-  const handleSeat= (e)=> {
-    getPrice(dispatch,e.target.value)
-  }
-    
+  const handleSeat = (e) => {
+    getPrice(dispatch, e.target.value);
+  };
+  // console.log("mainitem", busSeatData);
   return (
     <div className="container">
       <div class="d-flex flex-column">
-        <div class=" d-flex">
+        <div class=" d-lg-flex d-sm-flex-column">
           <div className="flex-grow-1 p-1 justify-content-center align-items-center">
             <small className="px-3 fw-bold">Select Sheets</small>
             <div className="d-flex justify-content-between align-items-center mt-2">
@@ -54,10 +54,10 @@ const BusDetails = ({ mainitem }) => {
               })}
             </div>
           </div>
-          <div className="p-3 d-flex flex-column">
+          <div className="p-3">
             {seat.seatInfo.map((val) => {
               return (
-                <div className="d-flex justify-content-start align-items-center">
+                <div className="d-lg-flex-column d-sm-flex justify-content-start align-items-center">
                   <input
                     type="radio"
                     id="vehicle1"
@@ -79,9 +79,9 @@ const BusDetails = ({ mainitem }) => {
         </div>
         {seatDate.map((item) => {
           return (
-            <div class="d-flex">
-              <BusSeats dataBusSeat={item}/>
-              <PayementProceed mainitem={mainitem}/>
+            <div class="d-lg-flex d-sm-flex-column">
+              <BusSeats dataBusSeat={item} />
+              <PayementProceed mainitem={mainitem} />
             </div>
           );
         })}

@@ -21,22 +21,22 @@ const filterData =[
   },
   {
     id: 3,
-    name: "Pickup Pint",
+    name: "Pickup Point",
     selector: "multiple",
     name1: [
-      { id: 1, value: "Kalkata", selected: false },
-      { id: 2, value: "Mumbai", selected: false },
-      { id: 3, value: "Bangaluru", selected: false },
+      { id: 1, value: "Mumbai", selected: false },
+      { id: 2, value: "Delhi", selected: false },
+      { id: 3, value: "Hedrabad", selected: false },
     ],
   },
   {
     id: 4,
-    name: "Drop Pint",
+    name: "Drop Point",
     selector: "single",
     name1: [
-      { id: 1, value: "Kalkata", selected: false },
-      { id: 2, value: "Mumbai", selected: false },
-      { id: 3, value: "Bangaluru", selected: false },
+      { id: 1, value: "Mumbai", selected: false },
+      { id: 2, value: "Delhi", selected: false },
+      { id: 3, value: "Hedrabad", selected: false },
     ],
   },
   {

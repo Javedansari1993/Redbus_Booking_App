@@ -5,7 +5,7 @@ const Dropdown = ({ cityList,val,selectedCity }) => {
   const [city, setCity] = useState("");
 
   return (
-    <div className="col col-md-3 col-sm-6">
+    <div className="col col-md-3 col-sm-12">
       <div className="my-1">
         <div
           class="d-flex flex-column my-1 p-2 bg-light my-2 border border-3 rounded"

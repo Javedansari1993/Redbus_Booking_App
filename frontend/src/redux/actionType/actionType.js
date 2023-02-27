@@ -15,6 +15,9 @@ const actionTypes = {
 
     SETPRICE_SUCCESS: 'SETPRICE_SUCCESS',
     SETPRICE_ERROR: 'SETPRICE_ERROR',
+
+    FORM_SUCCESS: 'FORM_SUCCESS',
+    FORM_ERROR: 'FORM_ERROR',
 }
 
 export default actionTypes

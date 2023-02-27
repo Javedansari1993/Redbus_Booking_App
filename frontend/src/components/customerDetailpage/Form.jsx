@@ -1,9 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { getForm } from '../../redux/action/action'
 
 const Form = () => {
+  const dispatch = useDispatch()
+  const [fname,setFname] = useState("")
+  const [age,setAge] = useState("")
+  const [emailId,setEmailId] = useState("")
+  const [city,setCity] = useState("")
+  const [gender,setGender] = useState("")
+  const [mobileNo,setMobileNo] = useState("")
+  const [formValue,setFormValue] = useState({fullName:"",Age:"",EmailId:"",City:"",Genger:"",MobileNo:""})
+
+ const handleSubmit = async(event) => {
+   await event.preventDefault();  
+    await setFormValue({fullName:fname,Age:age,EmailId:emailId,City:city,Genger:gender,MobileNo:mobileNo})
+    await alert("Successfully Submitted")
+  }
+  getForm(dispatch,formValue)
+
+
   return (
     <div class="border border-2 my-1 rounded shadow p-2">
-              <form className="row g-3 needs-validation" noValidate>
+              <form className="row g-3 needs-validation" onSubmit={handleSubmit} noValidate>
                 <div className="col-md-4">
                   <label htmlFor="validationCustom01" className="form-label">
                     Full Name
@@ -12,7 +31,8 @@ const Form = () => {
                     type="text"
                     className="form-control"
                     id="validationCustom01"
-                    defaultValue=""
+                    value={fname}
+                    onChange={(e)=>setFname(e.target.value)}
                     required
                   />
                   <div className="valid-feedback">Looks good!</div>
@@ -25,7 +45,8 @@ const Form = () => {
                     type="number"
                     className="form-control"
                     id="validationCustom02"
-                    defaultValue="Otto"
+                    value={age}
+                    onChange={(e)=>setAge(e.target.value)}
                     required
                   />
                   <div className="valid-feedback">Looks good!</div>
@@ -46,6 +67,8 @@ const Form = () => {
                       className="form-control"
                       id="validationCustomUsername"
                       aria-describedby="inputGroupPrepend"
+                      value={emailId}
+                      onChange={(e)=>setEmailId(e.target.value)}
                       required
                     />
                     <div className="invalid-feedback">
@@ -61,6 +84,8 @@ const Form = () => {
                     type="text"
                     className="form-control"
                     id="validationCustom03"
+                    value={city}
+                    onChange={(e)=>setCity(e.target.value)}
                     required
                   />
                   <div className="invalid-feedback">
@@ -74,13 +99,14 @@ const Form = () => {
                   <select
                     className="form-select"
                     id="validationCustom04"
+                    onChange={(e)=>setGender(e.target.value)}
                     required
                   >
                     <option selected disabled value>
                       Choose...
                     </option>
-                    <option>Male</option>
-                    <option>Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
                   </select>
                   <div className="invalid-feedback">
                     Please select a valid state.
@@ -94,6 +120,8 @@ const Form = () => {
                     type="tel"
                     className="form-control"
                     id="validationCustom05"
+                    value={mobileNo}
+                    onChange={(e)=>setMobileNo(e.target.value)}
                     required
                   />
                   <div className="invalid-feedback">
