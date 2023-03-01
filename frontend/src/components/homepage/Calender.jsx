@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Calendar from "moedim";
 
-const Calender = () => {
+const Calender = ({selectedDate}) => {
   const [drop, setDrop] = useState(false);
   const [value, setValue] = useState(new Date());
+
+  function handleDate(d){
+    setValue(d)
+    selectedDate(d)
+  }
+  
+  // useEffect(()=>{
+  // },[value])
   return (
     <div className="col-md-3 col-sm-12">
       <div className="my-1">
@@ -31,7 +39,7 @@ const Calender = () => {
             <Calendar
               className="w-100"
               value={value}
-              onChange={(d) => setValue(d)}
+              onChange={handleDate}
             />
           </div>
         )}

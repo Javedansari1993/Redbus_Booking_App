@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getSingleBusDetail } from "../../redux/action/action";
 import BusDetails from "./BusDetails";
-const Buses = ({ item }) => {
-  const [sheet, setSheet] = useState(false)
-  const dispatch = useDispatch()
-  function handbusDetail(){
-    setSheet(!sheet)
-    getSingleBusDetail(dispatch,item)
+const Buses = ({ item, busDate }) => {
+ const month = busDate.toLocaleString("default", {month: "short"});
+  const day = busDate.toLocaleString("default", {day: "numeric"});
+  const [sheet, setSheet] = useState(false);
+  const dispatch = useDispatch();
+  function handbusDetail() {
+    setSheet(!sheet);
+    getSingleBusDetail(dispatch, item);
   }
   return (
     <div class="container border border-1 mr-2 mt-2 rounded">
@@ -24,28 +26,30 @@ const Buses = ({ item }) => {
             <small className="text-muted">Rating</small>
           </small>
           <small className="d-flex gap-3 py-2">
-            {item.seatType.map((val)=>{
-              return <small className="fst-normal text-muted">{val}</small>
-            })} 
+            {item.seatType.map((val) => {
+              return <small className="fst-normal text-muted">{val}</small>;
+            })}
           </small>
           <div className="d-flex my-1">
-            <small className="fw-semobold">{item.depTime}</small>
+            <small className="fw-semobold">{item.depTime},{month},{day}</small>
             <small
               className="mx-3 text-muted d-flex align-items-center"
               style={{ fontSize: "12px" }}
             >
               ---{item.timeduration}---
             </small>
-            <small>{item.arrTime}</small>
+            <small>{item.arrTime},{month},{parseInt(day)+1}</small>
           </div>
           <div className="d-flex my-4 gap-3">
-            {item.seatInfo.map((val)=>{
-              return <div
-              className="fw-bold text-primary"
-              style={{ fontSize: "10px" }}
-            >
-             {val}
-            </div>
+            {item.seatInfo.map((val) => {
+              return (
+                <div
+                  className="fw-bold text-primary"
+                  style={{ fontSize: "10px" }}
+                >
+                  {val}
+                </div>
+              );
             })}
           </div>
         </div>
@@ -55,9 +59,11 @@ const Buses = ({ item }) => {
             Per Ticket Price
           </div>
           <h6>{item.price}</h6>
-          <button className="btn btn-warning my-1" onClick={handbusDetail}>View Seat</button>
+          <button className="btn btn-warning my-1" onClick={handbusDetail}>
+            View Seat
+          </button>
         </div>
-        {sheet &&  <BusDetails mainitem={item}/> }
+        {sheet && <BusDetails mainitem={item} />}
       </div>
     </div>
   );

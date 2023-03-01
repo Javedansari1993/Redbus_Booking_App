@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const Checkbox = ({ dept }) => {
   const busdetails = useSelector((state) => state.busDetail.BusDetail);
-  console.log(busdetails)
+  // console.log(busdetails)
   function handleChange(e){
     console.log(e.target.value)
   }

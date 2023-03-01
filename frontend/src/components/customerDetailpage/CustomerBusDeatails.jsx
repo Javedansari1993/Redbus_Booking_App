@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux';
 
 const CustomerBusDeatails = () => {
   const item = useSelector((state)=>state.singleBusDetail.singleBusDetails)
-
+  const buslocation = useSelector((state) => state.busLocation.busLocation[2]);
+  const month = buslocation.toLocaleString("default", {month: "short"});
+  const day = buslocation.toLocaleString("default", {day: "numeric"});
     // const  seatType = ["A/C Sleeper(2+1)", "|", "Left Seat", "|", "Window Seat"]
     
   return (
@@ -22,14 +24,14 @@ const CustomerBusDeatails = () => {
                 })}
               </small>
               <div className="d-flex my-1">
-                <small className="fw-semobold">{item.depTime}</small>
+                <small className="fw-semobold">{item.depTime},{month},{day}</small>
                 <small
                   className="mx-3 text-muted d-flex align-items-center"
                   style={{ fontSize: "12px" }}
                 >
                   ---{item.timeduration}---
                 </small>
-                <small>{item.arrTime}</small>
+                <small>{item.arrTime},{month},{parseInt(day)+1}</small>
               </div>
               <div className="d-flex my-2 gap-5">
                 <div>

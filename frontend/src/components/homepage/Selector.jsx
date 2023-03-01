@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Calender from "./Calender";
 import Dropdown from "./Dropdown";
@@ -6,28 +6,24 @@ import bgimage from "../images/bgimage.jpg";
 import { useDispatch } from "react-redux";
 import { setBusLocation } from "../../redux/action/action";
 const Selector = () => {
-  // let fromCityList = ["Mumbai", "Delhi", "Hedrabad"];
+  const dispatch = useDispatch();
   const [cityList, setCityList] = useState(["Mumbai", "Delhi", "Hedrabad","Dehradoon"]);
   const [location, setLocation] = useState([]);
+  const [selectedDate, setSelectedDate] = useState();
 
   function fromCity(from, index) {
     cityList.splice(index, 1);
-    // console.log("from",from)
-    // setCityList(fromCityList);
     setLocation([...location, from]);
   }
   function toCity(to, index) {
-    // console.log("to",to)
     cityList.splice(index, 1);
     setLocation([...location, to]);
   }
-
-  // console.log("location", location)
-  useState(() => {}, [cityList]);
-
-  // const buslocation = useSelector((state) => state.busLocation);
-  const dispatch = useDispatch();
-  // console.log("buslocation", buslocation);
+  useEffect(()=>{
+    if (selectedDate) {
+      setLocation([...location, selectedDate])
+    }
+  },[selectedDate])
 
   return (
     <div
@@ -46,7 +42,7 @@ const Selector = () => {
         >
           <Dropdown val="From" cityList={cityList} selectedCity={fromCity} />
           <Dropdown val="To" cityList={cityList} selectedCity={toCity} />
-          <Calender/>
+          <Calender  selectedDate={setSelectedDate}/>
         </div>
       </div>
       <div className="d-flex justify-content-center">

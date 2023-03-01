@@ -22,17 +22,22 @@ const BusTimings = () => {
   //   }
 
   const buslocation = useSelector((state) => state.busLocation);
+  // console.log("buslocation",buslocation)
   const dispatch = useDispatch();
   const busdetails = useSelector((state) => state.busDetail.BusDetail);
   const [selectedBus, setSelectedBus] = useState(busdetails);
-
+  // console.log("busdetails",busdetails)
   function setBus() {
     if (buslocation.busLocation.length > 0) {
+      let day = buslocation.busLocation[2].toLocaleString("default", {weekday:'long',})
+      // console.log("day", day)
       setSelectedBus(
         busdetails.filter((item) => {
+          // console.log("runni",item.runningDay.includes(day))
           return (
             item.pickPoint === buslocation.busLocation[0] &&
-            item.dropPoint === buslocation.busLocation[1]
+            item.dropPoint === buslocation.busLocation[1] &&
+            item.runningDay.includes(day)
           );
         })
       );
@@ -51,7 +56,7 @@ const BusTimings = () => {
         <Pagination />
         <div className="">
           {selectedBus.map((item) => {
-            return <Buses item={item} />;
+            return <Buses item={item} key={item.id} busDate={buslocation.busLocation[2]}/>;
           })}
         </div>
       </div>

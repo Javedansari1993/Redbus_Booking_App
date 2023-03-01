@@ -4,7 +4,7 @@ import { getPrice } from "../../redux/action/action";
 import BusSeats from "./BusSeats";
 import PayementProceed from "./PayementProceed";
 const BusDetails = ({ mainitem }) => {
-  console.log("mainitem", mainitem);
+  // console.log("mainitem", mainitem);
 
   const seat = useSelector((state) => state.busDetail.seat);
 
