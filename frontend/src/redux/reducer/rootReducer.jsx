@@ -4,6 +4,7 @@ import busFormReducer from "./busFormReducer";
 import buslocationReducer from "./busLocationReducer";
 import busPriceReducer from "./busPriceReducer";
 import busSeatNumberReducer from "./busSeatNumber";
+import selectedBusReducer from "./selectedBusesReducer";
 import singleBusDetailsReducer from "./singleBusDetail";
 
 //main reducer of the App
@@ -13,7 +14,8 @@ const rootReducer = combineReducers ({
     busSeatNumber:busSeatNumberReducer,
     singleBusDetail : singleBusDetailsReducer,
     busPrice:busPriceReducer,
-    busForm:busFormReducer
+    busForm:busFormReducer,
+    selectedBuses:selectedBusReducer
 })
 
 

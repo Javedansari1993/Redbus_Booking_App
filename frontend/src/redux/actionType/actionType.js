@@ -18,6 +18,9 @@ const actionTypes = {
 
     FORM_SUCCESS: 'FORM_SUCCESS',
     FORM_ERROR: 'FORM_ERROR',
+
+    SELECTED_BUS_SUCCESS: 'SELECTED_BUS_SUCCESS',
+    SELECTED_BUS_ERROR: 'SELECTED_BUS_ERROR',
 }
 
 export default actionTypes

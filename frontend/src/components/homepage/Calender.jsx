@@ -39,7 +39,7 @@ const Calender = ({selectedDate}) => {
             <Calendar
               className="w-100"
               value={value}
-              onChange={handleDate}
+              onChange={(d)=>handleDate(d)}
             />
           </div>
         )}

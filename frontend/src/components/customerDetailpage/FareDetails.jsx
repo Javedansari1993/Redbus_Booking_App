@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 const FareDetails = () => {
   const prices = useSelector((state)=>state.busPrice.price.length>0?state.busPrice.price:"799")
-  console.log("type", typeof(prices))
+  // console.log("type", typeof(prices))
   let total = parseInt(prices)+150-50
   return (
     <div class="col border border-2 rounded shadow p-3 my-2 mb-4" style={{height:"40%"}}>

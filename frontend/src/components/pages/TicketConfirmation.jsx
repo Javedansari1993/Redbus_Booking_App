@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 const TicketConfirmation = () => {
   const busForm =useSelector((state)=>state.busForm.formValue)
-  console.log("busForm",busForm)
+  // console.log("busForm",busForm)
   const obj = {
     name:"Javed",
     profile:"Profile"

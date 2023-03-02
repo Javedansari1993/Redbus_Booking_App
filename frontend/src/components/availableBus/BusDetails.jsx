@@ -1,21 +1,18 @@
 import React, { useState } from "react";
+import busDate from "./busData";
 import { useDispatch, useSelector } from "react-redux";
 import { getPrice } from "../../redux/action/action";
 import BusSeats from "./BusSeats";
 import PayementProceed from "./PayementProceed";
 const BusDetails = ({ mainitem }) => {
-  // console.log("mainitem", mainitem);
 
-  const seat = useSelector((state) => state.busDetail.seat);
-
-  // const busSeatData = mainitem.busSeatData;
   const dispatch = useDispatch();
-  // console.log("mainitem", busSeatData);
-  const [seatDate, setSeatData] = useState(mainitem.busSeatData);
+ 
+  const [seatDate, setSeatData] = useState([mainitem]);
   const handleSeat = (e) => {
     getPrice(dispatch, e.target.value);
   };
-  // console.log("mainitem", busSeatData);
+
   return (
     <div className="container">
       <div class="d-flex flex-column">
@@ -29,7 +26,7 @@ const BusDetails = ({ mainitem }) => {
               >
                 Select Prices
               </div>
-              {seat.seatPrices.map((item) => {
+              { busDate.seatPrices.map((item) => {
                 return (
                   <div className="d-flex justify-content-between align-items-center border border-1 px-3 py-1 rounded shadow">
                     <input
@@ -55,7 +52,7 @@ const BusDetails = ({ mainitem }) => {
             </div>
           </div>
           <div className="p-3">
-            {seat.seatInfo.map((val) => {
+            { busDate.seatInfo.map((val) => {
               return (
                 <div className="d-lg-flex-column d-sm-flex justify-content-start align-items-center">
                   <input
@@ -81,7 +78,7 @@ const BusDetails = ({ mainitem }) => {
           return (
             <div class="d-lg-flex d-sm-flex-column">
               <BusSeats dataBusSeat={item} />
-              <PayementProceed mainitem={mainitem} />
+              <PayementProceed mainitem={item} />
             </div>
           );
         })}

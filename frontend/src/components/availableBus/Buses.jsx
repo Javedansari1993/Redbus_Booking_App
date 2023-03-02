@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { getSingleBusDetail } from "../../redux/action/action";
 import BusDetails from "./BusDetails";
 const Buses = ({ item, busDate }) => {
+  // console.log("item",item)
  const month = busDate.toLocaleString("default", {month: "short"});
   const day = busDate.toLocaleString("default", {day: "numeric"});
   const [sheet, setSheet] = useState(false);

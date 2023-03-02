@@ -3,7 +3,7 @@ import Checkbox from "./Checkbox";
 import SearchBox from "./SearchBox";
 import filterData from "./Dataset";
 
-const Filter = () => {
+const Filter = ({buslist}) => {
   return (
     <div class="col-md-3 col-sm-12 ">
       <div class="d-flex flex-column mb-3 bg-secondry">

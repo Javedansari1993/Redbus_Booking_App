@@ -69,4 +69,12 @@ export const getForm= (dispatch, formValue) => {
   });
 };
 
+export const getSeletedBuses= (dispatch, selectedBuses) => {
+  // console.log("seatnumber",item)
+  return dispatch({
+    type: actionTypes.SELECTED_BUS_SUCCESS,
+    payload:  selectedBuses,
+  });
+};
+
 
