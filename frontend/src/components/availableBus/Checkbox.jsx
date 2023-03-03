@@ -1,11 +1,29 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getSeletedBuses } from "../../redux/action/action";
 
-const Checkbox = ({ dept }) => {
-  const busdetails = useSelector((state) => state.selectedBuses);
-  // console.log("busdetails",busdetails)
+const Checkbox = ({ dept,buslist}) => {
+  // console.log("busdetails",buslist)
+  const dispatch = useDispatch()
+  // const filterBusList = buslist
+  const[filterBusList, setFilterBusList]  =useState(buslist)
   const handleChange=(e)=>{
-    // console.log(e.target.value)
+    if(dept.name==="Departure" && e.target.value==="Morning Session"){
+      const filterdata = filterBusList.filter((item)=>{
+        const depTime = item.depTime.split(":")
+        return depTime[0]<=12
+      })
+      getSeletedBuses(dispatch,filterdata)
+    }else if(dept.name==="Departure" && e.target.value==="Afternoon Session"){
+      const filterdata = filterBusList.filter((item)=>{
+        const depTime = item.depTime.split(":")
+        return depTime[0]>=12 && depTime[0] <= 18
+      })
+      getSeletedBuses(dispatch,filterdata)
+    }
+    else{
+      getSeletedBuses(dispatch,filterBusList )
+    }
   }
   return (
     <div class="p-2 px-3">

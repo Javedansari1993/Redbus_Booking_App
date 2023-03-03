@@ -1,7 +1,7 @@
 const filterData =[
   {
     id: 1,
-    name: "Department",
+    name: "Departure",
     selector: "single",
     name1: [
       { id: 1, value: "Morning Session", selected: false },
@@ -54,7 +54,7 @@ const filterData =[
     name: "Bus Operator",
     selector: "multiple",
     name1: [
-      { id: 1, value: "Zing bus", selected: false },
+      { id: 1, value: "Zing Bus", selected: false },
       { id: 2, value: "Intercity Smart", selected: false },
       { id: 3, value: "Safar Exp", selected: false },
     ],

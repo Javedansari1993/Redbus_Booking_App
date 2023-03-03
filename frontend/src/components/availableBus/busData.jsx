@@ -10,8 +10,8 @@ const busDate = {
     BusList: [
       {
         id: 1,
-        runningDay: ["Monday", "Wednesday", "Friday", "Sunday"],
-        name: "Intercity Smart Bus",
+        runningDay: ["Tuesday", "Thursday", "Saturday"],
+        name: "Intercity Smart",
         seatType: ["A/C Sleeper(2+1)", "|", "Left Seat", "|", "Window Seat"],
         seatInfo: [
           "Live Tracking",
@@ -92,9 +92,9 @@ const busDate = {
         },
       },
       {
-        id: 1,
-        runningDay: ["Monday", "Wednesday", "Friday", "Sunday"],
-        name: "Intercity Smart Bus",
+        id: 2,
+        runningDay: ["Tuesday", "Thursday", "Saturday"],
+        name: "Safar Exp",
         seatType: ["A/C Sleeper(2+1)", "|", "Left Seat", "|", "Window Seat"],
         seatInfo: [
           "Live Tracking",
@@ -105,9 +105,9 @@ const busDate = {
         ],
         rating: "3",
         price: "$899",
-        depTime: "1:30",
-        arrTime: ":13;30",
-        timeduration: "11hrs59min",
+        depTime: "13:30",
+        arrTime: "23:30",
+        timeduration: "10hrs59min",
         pickPoint: "Delhi",
         dropPoint: "Mumbai",
         depPoint: "Delhi Road",
@@ -175,9 +175,9 @@ const busDate = {
           },
       },
       {
-        id: 1,
-        runningDay: ["Monday", "Wednesday", "Friday", "Sunday"],
-        name: "Intercity Smart Bus",
+        id: 3,
+        runningDay: ["Tuesday", "Thursday", "Saturday"],
+        name: "Zing Bus",
         seatType: ["A/C Sleeper(2+1)", "|", "Left Seat", "|", "Window Seat"],
         seatInfo: [
           "Live Tracking",
@@ -258,9 +258,9 @@ const busDate = {
           },
       },
       {
-        id: 2,
+        id: 4,
         runningDay: ["Tuesday", "Thursday", "Saturday"],
-        name: "Zing Smart Bus",
+        name: "Zing Bus",
         seatType: ["A/C Sleeper(2+1)", "|", "Left Seat", "|", "Window Seat"],
         seatInfo: [
           "Live Tracking",
@@ -341,9 +341,9 @@ const busDate = {
           },
       },
       {
-        id: 3,
+        id: 5,
         runningDay: ["Tuesday", "Thursday", "Saturday"],
-        name: "Safar Exppress Bus",
+        name: "Safar Exp",
         seatType: ["A/C Sleeper(2+1)", "|", "Left Seat", "|", "Window Seat"],
         seatInfo: [
           "Live Tracking",
@@ -424,8 +424,8 @@ const busDate = {
           },
       },
       {
-        id: 4,
-        name: "Intercity Smart Bus",
+        id: 6,
+        name: "Intercity Smart",
         runningDay: ["Monday", "Wednesday", "Friday", "Sunday"],
         seatType: ["A/C Sleeper(2+1)", "|", "Left Seat", "|", "Window Seat"],
         seatInfo: [
@@ -507,9 +507,9 @@ const busDate = {
           },
       },
       {
-        id: 5,
+        id: 7,
         runningDay: ["Tuesday", "Thursday", "Saturday"],
-        name: "Zing Smart Bus",
+        name: "Zing Bus",
         seatType: ["A/C Sleeper(2+1)", "|", "Left Seat", "|", "Window Seat"],
         seatInfo: [
           "Live Tracking",
@@ -590,9 +590,9 @@ const busDate = {
           },
       },
       {
-        id: 6,
+        id: 8,
         runningDay: ["Monday", "Wednesday", "Friday", "Sunday"],
-        name: "Safar Exppress Bus",
+        name: "Safar Exp",
         seatType: ["A/C Sleeper(2+1)", "|", "Left Seat", "|", "Window Seat"],
         seatInfo: [
           "Live Tracking",

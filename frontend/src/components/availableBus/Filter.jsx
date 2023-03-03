@@ -3,7 +3,8 @@ import Checkbox from "./Checkbox";
 import SearchBox from "./SearchBox";
 import filterData from "./Dataset";
 
-const Filter = ({buslist}) => {
+const Filter = ({ buslist }) => {
+  // console.log("busList", buslist);
   return (
     <div class="col-md-3 col-sm-12 ">
       <div class="d-flex flex-column mb-3 bg-secondry">
@@ -20,7 +21,11 @@ const Filter = ({buslist}) => {
           {filterData.map((item, index) => {
             return (
               <div>
-                {item.selector === "multiple" ? <SearchBox dept={item}/>:<Checkbox dept={item} index={index} />}
+                {item.selector === "multiple" ? (
+                  <SearchBox dept={item} buslist={buslist}/>
+                ) : (
+                  <Checkbox dept={item} index={index} buslist={buslist}/>
+                )}
               </div>
             );
           })}
