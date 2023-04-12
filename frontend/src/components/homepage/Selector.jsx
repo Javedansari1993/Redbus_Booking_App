@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import busDate from "../availableBus/busData";
+// import busDate from "../availableBus/busData";
 import { Link } from "react-router-dom";
 import Calender from "./Calender";
 import Dropdown from "./Dropdown";
@@ -11,25 +11,8 @@ const Selector = () => {
   const [cityList, setCityList] = useState(["Mumbai", "Delhi", "Hedrabad","Dehradoon"]);
   const [location, setLocation] = useState([]);
   const [selectedDate, setSelectedDate] = useState();
-  const [filterBusList, setFilterBusList] = useState(busDate.BusList)
+  // const [filterBusList, setFilterBusList] = useState(busDate.BusList)
   const [filteredBus ,setFilteredBus] = useState();
-  const func = async () => {
-    // const myData = {
-    //   From: fromTo.INIT_STATE.From,
-    //   To: fromTo.INIT_STATE.To,
-    //   DaysRunOn: fromTo.INIT_STATE.Day,
-    // };
-    // const queryString = new URLSearchParams(myData).toString();
-    const buses = await fetch(`http://localhost:8080/busdetail`)
-      .then((response) => response.json())
-      .then((data) => data)
-      .catch((error) => console.error(error));
-
-    setFilteredBus(buses);
-  };
-  useEffect(() => {
-    func();
-  }, []);
   // console.log("firter data",filteredBus)
   function fromCity(from, index) {
     cityList.splice(index, 1);
@@ -39,29 +22,46 @@ const Selector = () => {
     cityList.splice(index, 1);
     setLocation([...location, to]);
   }
-  useEffect(()=>{
-    if (selectedDate) {
-      setLocation([...location, selectedDate])
-      let filterData = filteredBus.filter((item) => {
-        let day = selectedDate.toLocaleString("default", {weekday:'long',})
-        return (
-          item.pickPoint === location[0] &&
-          item.dropPoint === location[1] &&
-          item.runningDay.includes(day)
-        );
-      })
-      setFilterBusList(filterData)
-    }
+    useEffect(() => {
+      const func = async () => {
+        if(selectedDate){
+          setLocation([...location, selectedDate])
+          let day = selectedDate.toLocaleString("default", {weekday:'long',})
+          const myData = {
+            pickPoint: location[0],
+            dropPoint: location[1],
+            runningDay: day
+          };
+          const queryString = new URLSearchParams(myData).toString();
+          const buses = await fetch(`http://localhost:8080/busdetail?${queryString}`)
+            .then((response) => response.json())
+            .then((data) => data)
+            .catch((error) => console.error(error));
+          setFilteredBus(buses);
+        }
+      };
+      func();
+    }, [selectedDate]);
+  // useEffect(()=>{
+  //   if (selectedDate) {
+  //     setLocation([...location, selectedDate])
+  //     let filterData = filteredBus.filter((item) => {
+  //       let day = selectedDate.toLocaleString("default", {weekday:'long',})
+  //       return (
+  //         item.pickPoint === location[0] &&
+  //         item.dropPoint === location[1] &&
+  //         item.runningDay.includes(day)
+  //       );
+  //     })
+  //     setFilterBusList(filterData)
+  //   }
 
-  },[selectedDate,filteredBus])
+  // },[selectedDate,filteredBus])
 
-// console.log("bus",busDate.BusList)
-// console.log("filte",filterBusList)
-// console.log("buslocation",location)
 
 const handleClickFilterData = ()=>{
   setBusLocation(dispatch,location)
-  getSeletedBuses(dispatch,filterBusList)
+  getSeletedBuses(dispatch,filteredBus)
 }
 
 
