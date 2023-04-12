@@ -5,6 +5,8 @@ import Seat from './Seat'
 const BusSeats = ({dataBusSeat}) => {
      const seatUppar = dataBusSeat.busSeatData.UpperSheet
      const seatLower = dataBusSeat.busSeatData.lowerSheet
+
+     console.log("BusSeats")
   return (
     <div class="col-lg-8 col-sm-12 d-flex-column">
             <div className="border border-1 d-flex justify-content-between align-items-center shadow rounded">

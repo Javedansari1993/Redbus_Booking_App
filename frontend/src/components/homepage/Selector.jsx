@@ -12,7 +12,25 @@ const Selector = () => {
   const [location, setLocation] = useState([]);
   const [selectedDate, setSelectedDate] = useState();
   const [filterBusList, setFilterBusList] = useState(busDate.BusList)
-  
+  const [filteredBus ,setFilteredBus] = useState();
+  const func = async () => {
+    // const myData = {
+    //   From: fromTo.INIT_STATE.From,
+    //   To: fromTo.INIT_STATE.To,
+    //   DaysRunOn: fromTo.INIT_STATE.Day,
+    // };
+    // const queryString = new URLSearchParams(myData).toString();
+    const buses = await fetch(`http://localhost:8080/busdetail`)
+      .then((response) => response.json())
+      .then((data) => data)
+      .catch((error) => console.error(error));
+
+    setFilteredBus(buses);
+  };
+  useEffect(() => {
+    func();
+  }, []);
+  // console.log("firter data",filteredBus)
   function fromCity(from, index) {
     cityList.splice(index, 1);
     setLocation([...location, from]);
@@ -24,7 +42,7 @@ const Selector = () => {
   useEffect(()=>{
     if (selectedDate) {
       setLocation([...location, selectedDate])
-      let filterData = busDate.BusList.filter((item) => {
+      let filterData = filteredBus.filter((item) => {
         let day = selectedDate.toLocaleString("default", {weekday:'long',})
         return (
           item.pickPoint === location[0] &&
@@ -35,7 +53,7 @@ const Selector = () => {
       setFilterBusList(filterData)
     }
 
-  },[selectedDate])
+  },[selectedDate,filteredBus])
 
 // console.log("bus",busDate.BusList)
 // console.log("filte",filterBusList)

@@ -1,64 +1,60 @@
 const mongoose = require('mongoose');
 
 const busDetailsSchema = new mongoose.Schema({
+    runningDay: {
+        type: Array,
+        required: true,
+    },
     name: {
         type: String,
+        required: true,
+    },
+    seatType: {
+        type: Array,
+        required: true,
+    },
+    seatInfo: {
+        type: Array,
         required: true,
     },
     rating: {
         type: String,
         required: true,
     },
-    bustype: {
-        type: String,
-        required: true,
-    },
-    totalseats: {
-        type: Number,
-        required: true,
-    },
-    windowseats: {
-        type: Number,
-        required: true,
-    },
-    depttime: {
-        type: String,
-        required: true,
-    },
-    deptdate: {
-        type: String,
-        required: true,
-    },
-    duration: {
-        type: String,
-        required: true,
-    },
-    arrtime: {
-        type: String,
-        required: true,
-    },
-    arrdate: {
-        type: String,
-        required: true,
-    },
     price: {
-        type: Number,
-        required: true,
-    },
-    deplocation: {
         type: String,
         required: true,
     },
-    arrlocation: {
+    depTime: {
         type: String,
         required: true,
     },
-    deppoint: {
+    arrTime: {
         type: String,
         required: true,
     },
-    arrpoint: {
+    timeduration: {
         type: String,
+        required: true,
+    },
+    pickPoint: {
+        type: String,
+        required: true,
+    },
+    dropPoint: {
+        type: String,
+        required: true,
+    },
+    depPoint: {
+        type: String,
+        required: true,
+    },
+    arrPoint: {
+        type: String,
+        required: true,
+    },
+    busSeatData: {
+        type: Object,
         required: true,
     },
 })

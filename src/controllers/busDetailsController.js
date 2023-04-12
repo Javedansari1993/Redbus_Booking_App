@@ -13,9 +13,11 @@ const busDetails = require("../models/busDetailsModule");
 
 //get all Subscriber
 const getbusDetail = async (req, res) => {
+  const {pickPoint,dropPoint,runningDay } = req.query;
+  console.log("run",pickPoint,dropPoint,runningDay)
   try {
     // get all subscribers
-    const busDetail = await busDetails.find({});
+    const busDetail = await busDetails.find({pickPoint,dropPoint,runningDay});
     //get all subscriber with a status code of 200
     return res.status(200).json(busDetail);
   } catch (error) {

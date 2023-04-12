@@ -11,6 +11,6 @@ const router = express.Router();
 router.get("/busdetail", getbusDetail);
 
 //POST request to add a subscriber
-router.post("/busdetail", createbusDetail);
+router.post("/busdetail1", createbusDetail);
 
 module.exports = router;
