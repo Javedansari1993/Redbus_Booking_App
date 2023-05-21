@@ -33,7 +33,7 @@ const Selector = () => {
             runningDay: day
           };
           const queryString = new URLSearchParams(myData).toString();
-          const buses = await fetch(`http://localhost:8080/busdetail?${queryString}`)
+          const buses = await fetch(`https://redbus-booking-app.vercel.app/busdetail?${queryString}`)
             .then((response) => response.json())
             .then((data) => data)
             .catch((error) => console.error(error));
