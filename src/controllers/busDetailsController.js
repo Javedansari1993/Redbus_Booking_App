@@ -19,6 +19,7 @@ const getbusDetail = async (req, res) => {
     // get all subscribers
     const busDetail = await busDetails.find({pickPoint,dropPoint,runningDay});
     //get all subscriber with a status code of 200
+    console.log(busDetail)
     return res.status(200).json(busDetail);
   } catch (error) {
     //incase of an error , return status code of 400 with error
